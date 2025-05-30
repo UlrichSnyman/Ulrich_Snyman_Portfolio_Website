@@ -14,7 +14,7 @@ function MainPage() {  return (
       <FluidBackground />
       <FloatingNav />
       <ProfileSection />
-      <PortfolioNav />     
+      <PortfolioNav />
       <AboutSection />
       <PortfolioSection />
       <TechnologiesBanner />

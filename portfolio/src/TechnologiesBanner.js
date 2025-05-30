@@ -16,6 +16,7 @@ const techData = [
   { name: 'Delphi', img: '/delphi.png', project: 'https://github.com/ulrichsnyman/delphi-project', source: 'https://github.com/ulrichsnyman/delphi-project/archive/refs/heads/main.zip' },
   { name: 'HTMX', img: '/htmx.png', project: 'https://github.com/ulrichsnyman/htmx-project', source: 'https://github.com/ulrichsnyman/htmx-project/archive/refs/heads/main.zip' },
   { name: 'Mongoose', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongoose/mongoose-original.svg', project: 'https://github.com/ulrichsnyman/mongoose-project', source: 'https://github.com/ulrichsnyman/mongoose-project/archive/refs/heads/main.zip' },
+  { name: 'Microsoft Access', img: '/MicrosoftAccess.png', project: 'https://github.com/ulrichsnyman/access-project', source: 'https://github.com/ulrichsnyman/access-project'}
 ];
 
 function TechnologiesBanner() {

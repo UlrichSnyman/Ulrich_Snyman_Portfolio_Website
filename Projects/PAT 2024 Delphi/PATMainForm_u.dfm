@@ -1,0 +1,609 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  ClientHeight = 720
+  ClientWidth = 1250
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  TextHeight = 15
+  object PageControl1: TPageControl
+    Left = 85
+    Top = 48
+    Width = 1084
+    Height = 577
+    ActivePage = tbsRegister
+    TabOrder = 0
+    object tbsLogin: TTabSheet
+      Caption = 'tbsLogin'
+      TabVisible = False
+      object pnlLogin: TPanel
+        Left = 0
+        Top = 6
+        Width = 1081
+        Height = 558
+        TabOrder = 0
+        object lblPassword: TLabel
+          Left = 456
+          Top = 128
+          Width = 50
+          Height = 15
+          Caption = 'Password'
+        end
+        object lblUsername: TLabel
+          Left = 453
+          Top = 72
+          Width = 53
+          Height = 15
+          Caption = 'Username'
+        end
+        object lblLogin: TLabel
+          Left = 542
+          Top = 16
+          Width = 35
+          Height = 15
+          Caption = 'LOGIN'
+        end
+        object lblHyperlinkLogintoRegister: TLabel
+          Left = 485
+          Top = 511
+          Width = 172
+          Height = 15
+          Caption = 'Don'#39't have an account? Register.'
+          OnClick = lblHyperlinkLogintoRegisterClick
+        end
+        object mskedtPassword: TMaskEdit
+          Left = 456
+          Top = 149
+          Width = 201
+          Height = 23
+          TabOrder = 0
+          Text = ''
+          TextHint = 'Enter your password'
+        end
+        object mskedtUsername: TMaskEdit
+          Left = 456
+          Top = 93
+          Width = 201
+          Height = 23
+          TabOrder = 1
+          Text = ''
+          TextHint = 'Enter your name or username'
+        end
+        object btnLogin: TButton
+          Left = 512
+          Top = 464
+          Width = 121
+          Height = 41
+          Caption = 'LOGIN'
+          TabOrder = 2
+          OnClick = btnLoginClick
+        end
+      end
+    end
+    object tbsRegister: TTabSheet
+      Caption = 'tbsRegister'
+      ImageIndex = 1
+      TabVisible = False
+      object pnlRegister: TPanel
+        Left = 0
+        Top = 6
+        Width = 1073
+        Height = 558
+        TabOrder = 0
+        object lblRegister: TLabel
+          Left = 519
+          Top = 16
+          Width = 49
+          Height = 15
+          Caption = 'REGISTER'
+        end
+        object lblUsernameReg: TLabel
+          Left = 448
+          Top = 72
+          Width = 93
+          Height = 15
+          Caption = 'Username(Name)'
+        end
+        object lblPostalcodeReg: TLabel
+          Left = 448
+          Top = 271
+          Width = 63
+          Height = 15
+          Caption = 'Postal Code'
+        end
+        object lblHyperlinkRegistertoLogin: TLabel
+          Left = 464
+          Top = 512
+          Width = 160
+          Height = 15
+          Caption = 'Don'#39't have an account? Login.'
+          OnClick = lblHyperlinkRegistertoLoginClick
+        end
+        object lblCityReg: TLabel
+          Left = 448
+          Top = 223
+          Width = 21
+          Height = 15
+          Caption = 'City'
+        end
+        object lblAdresReg: TLabel
+          Left = 448
+          Top = 167
+          Width = 30
+          Height = 15
+          Caption = 'Adres'
+        end
+        object lblEmailReg: TLabel
+          Left = 448
+          Top = 119
+          Width = 29
+          Height = 15
+          Caption = 'Email'
+        end
+        object lblPhoneNumReg: TLabel
+          Left = 448
+          Top = 319
+          Width = 134
+          Height = 15
+          Caption = 'Telphone/Phone Number'
+        end
+        object lblPasswordReg: TLabel
+          Left = 448
+          Top = 367
+          Width = 50
+          Height = 15
+          Caption = 'Password'
+        end
+        object lblPasswordVerifyReg: TLabel
+          Left = 448
+          Top = 415
+          Width = 82
+          Height = 15
+          Caption = 'Verify Password'
+        end
+        object mskedtUsernameReg: TMaskEdit
+          Left = 448
+          Top = 93
+          Width = 201
+          Height = 23
+          TabOrder = 0
+          Text = ''
+          TextHint = 'Enter your name or username'
+        end
+        object mskedtPostalCodeReg: TMaskEdit
+          Left = 448
+          Top = 292
+          Width = 201
+          Height = 23
+          TabOrder = 1
+          Text = ''
+          TextHint = 'Enter your password'
+        end
+        object btnRegister: TButton
+          Left = 480
+          Top = 465
+          Width = 121
+          Height = 41
+          Caption = 'REGISTER'
+          TabOrder = 2
+          OnClick = btnRegisterClick
+        end
+        object mskedtCityReg: TMaskEdit
+          Left = 448
+          Top = 244
+          Width = 201
+          Height = 23
+          TabOrder = 3
+          Text = ''
+          TextHint = 'Enter your real-life City'
+        end
+        object mskedtAdresReg: TMaskEdit
+          Left = 448
+          Top = 194
+          Width = 201
+          Height = 23
+          TabOrder = 4
+          Text = ''
+          TextHint = 'Enter your real-life street adres'
+        end
+        object mskedtEmailReg: TMaskEdit
+          Left = 448
+          Top = 138
+          Width = 201
+          Height = 23
+          TabOrder = 5
+          Text = ''
+          TextHint = 'Enter your email-adres'
+        end
+        object mskedtPhoneNumReg: TMaskEdit
+          Left = 448
+          Top = 340
+          Width = 201
+          Height = 23
+          TabOrder = 6
+          Text = ''
+          TextHint = 'Enter your telephone/phone number'
+        end
+        object mskedtPasswordReg: TMaskEdit
+          Left = 448
+          Top = 388
+          Width = 201
+          Height = 23
+          TabOrder = 7
+          Text = ''
+          TextHint = 'Enter your password'
+        end
+        object mskedtPasswordVerifyReg: TMaskEdit
+          Left = 448
+          Top = 436
+          Width = 201
+          Height = 23
+          TabOrder = 8
+          Text = ''
+          TextHint = 'Enter your password again'
+        end
+      end
+    end
+    object tbsWater: TTabSheet
+      Caption = 'tbsWater'
+      ImageIndex = 3
+      TabVisible = False
+      object pnlWaterBillOverview: TPanel
+        Left = 3
+        Top = 9
+        Width = 1073
+        Height = 558
+        TabOrder = 0
+        object lblWaterBillOverview: TLabel
+          Left = 303
+          Top = 16
+          Width = 121
+          Height = 15
+          Caption = 'WATER BILL OVERVIEW'
+        end
+        object lblAccHolderNameWater: TLabel
+          Left = 64
+          Top = 69
+          Width = 119
+          Height = 15
+          Caption = 'Account Holder Name'
+        end
+        object lblSecurityCodeWater: TLabel
+          Left = 191
+          Top = 207
+          Width = 73
+          Height = 15
+          Caption = 'Security Code'
+        end
+        object lblExpDateWater: TLabel
+          Left = 63
+          Top = 207
+          Width = 49
+          Height = 15
+          Caption = 'Exp. Date'
+        end
+        object lblCCNWater: TLabel
+          Left = 64
+          Top = 157
+          Width = 107
+          Height = 15
+          Caption = 'Credit Card Number'
+        end
+        object mskedtAccHolderNameWater: TMaskEdit
+          Left = 64
+          Top = 90
+          Width = 201
+          Height = 23
+          TabOrder = 0
+          Text = ''
+          TextHint = 'Enter the name of the account holder'
+        end
+        object btnAddBillWater: TButton
+          Left = 456
+          Top = 79
+          Width = 153
+          Height = 45
+          Caption = 'Add Bill'
+          TabOrder = 1
+          OnClick = btnAddBillWaterClick
+        end
+        object mskedtSecurityCodeWater: TMaskEdit
+          Left = 191
+          Top = 228
+          Width = 69
+          Height = 23
+          TabOrder = 2
+          Text = ''
+        end
+        object mskedtExpDateWater: TMaskEdit
+          Left = 63
+          Top = 228
+          Width = 122
+          Height = 23
+          TabOrder = 3
+          Text = ''
+        end
+        object mskedtCCNWater: TMaskEdit
+          Left = 64
+          Top = 178
+          Width = 201
+          Height = 23
+          TabOrder = 4
+          Text = ''
+          TextHint = 'Enter the credit card number '
+        end
+        object memWaterBill: TMemo
+          Left = 640
+          Top = 13
+          Width = 425
+          Height = 532
+          Lines.Strings = (
+            '')
+          TabOrder = 5
+        end
+        object btnPayBillWater: TButton
+          Left = 64
+          Top = 301
+          Width = 154
+          Height = 54
+          Caption = 'PAY BILL'
+          TabOrder = 6
+          OnClick = btnPayBillWaterClick
+        end
+        object cbxSaveCCInfoWater: TCheckBox
+          Left = 64
+          Top = 257
+          Width = 121
+          Height = 17
+          Caption = 'Save Information?'
+          TabOrder = 7
+        end
+        object btnRemoveBillWater: TButton
+          Left = 456
+          Top = 130
+          Width = 153
+          Height = 45
+          Caption = 'Remove Last Bill'
+          TabOrder = 8
+          OnClick = btnRemoveBillWaterClick
+        end
+        object btnSaveandCloseWater: TButton
+          Left = 456
+          Top = 498
+          Width = 153
+          Height = 45
+          Caption = 'Save and Close'
+          TabOrder = 9
+          OnClick = btnSaveandCloseWaterClick
+        end
+      end
+    end
+    object tbsWelcome: TTabSheet
+      Caption = 'tbsWelcome'
+      ImageIndex = 2
+      TabVisible = False
+      object pnlWelcome: TPanel
+        Left = 0
+        Top = 0
+        Width = 1076
+        Height = 567
+        TabOrder = 0
+        object lblWelcome: TLabel
+          Left = 503
+          Top = 56
+          Width = 95
+          Height = 15
+          Caption = 'WELCOME [USER]'
+        end
+        object lblTotalBills: TLabel
+          Left = 526
+          Top = 284
+          Width = 44
+          Height = 15
+          Caption = 'Total Bill'
+        end
+        object lblLastLogin: TLabel
+          Left = 526
+          Top = 305
+          Width = 54
+          Height = 15
+          Caption = 'Last Login'
+        end
+        object lblTime: TLabel
+          Left = 536
+          Top = 326
+          Width = 26
+          Height = 15
+          Caption = 'Time'
+        end
+        object imgUserAvatar: TImage
+          Left = 487
+          Top = 101
+          Width = 121
+          Height = 105
+        end
+        object btnEditProfile: TSpeedButton
+          Left = 487
+          Top = 212
+          Width = 121
+          Height = 22
+          Caption = 'Edit Profile'
+          OnClick = btnEditProfileClick
+        end
+        object btnElectricityOverview: TButton
+          Left = 176
+          Top = 387
+          Width = 177
+          Height = 41
+          Caption = 'ELECTRICITY BILL OVERVIEW'
+          TabOrder = 0
+          OnClick = btnElectricityOverviewClick
+        end
+        object btnWelcomeSaveQuit: TButton
+          Left = 487
+          Top = 419
+          Width = 121
+          Height = 41
+          Caption = 'SAVE AND QUIT'
+          TabOrder = 1
+          OnClick = btnWelcomeSaveQuitClick
+        end
+        object btnWaterOverview: TButton
+          Left = 744
+          Top = 379
+          Width = 177
+          Height = 41
+          Caption = 'WATER BILL OVERVIEW'
+          TabOrder = 2
+          OnClick = btnWaterOverviewClick
+        end
+      end
+    end
+    object tbsElectricity: TTabSheet
+      Caption = 'tbsElectricity'
+      ImageIndex = 4
+      TabVisible = False
+      object pnlElectricityBillOverview: TPanel
+        Left = 3
+        Top = 9
+        Width = 1073
+        Height = 558
+        TabOrder = 0
+        object lblElectricityBillOverview: TLabel
+          Left = 303
+          Top = 16
+          Width = 150
+          Height = 15
+          Caption = 'ELECTRICITY BILL OVERVIEW'
+        end
+        object lblbAccHolderNameElec: TLabel
+          Left = 64
+          Top = 69
+          Width = 119
+          Height = 15
+          Caption = 'Account Holder Name'
+        end
+        object lblSecurityCodeElec: TLabel
+          Left = 191
+          Top = 207
+          Width = 73
+          Height = 15
+          Caption = 'Security Code'
+        end
+        object lblExpDateElec: TLabel
+          Left = 63
+          Top = 207
+          Width = 49
+          Height = 15
+          Caption = 'Exp. Date'
+        end
+        object lblCCNElec: TLabel
+          Left = 64
+          Top = 157
+          Width = 107
+          Height = 15
+          Caption = 'Credit Card Number'
+        end
+        object mskedtAccHolderNameElec: TMaskEdit
+          Left = 64
+          Top = 90
+          Width = 201
+          Height = 23
+          TabOrder = 0
+          Text = ''
+          TextHint = 'Enter the name of the account holder'
+        end
+        object btnAddBillElec: TButton
+          Left = 456
+          Top = 79
+          Width = 153
+          Height = 45
+          Caption = 'Add Bill'
+          TabOrder = 1
+          OnClick = btnAddBillElecClick
+        end
+        object mskedtSecurityCodeElec: TMaskEdit
+          Left = 191
+          Top = 228
+          Width = 69
+          Height = 23
+          TabOrder = 2
+          Text = ''
+        end
+        object mskedtExpDateElek: TMaskEdit
+          Left = 63
+          Top = 228
+          Width = 122
+          Height = 23
+          TabOrder = 3
+          Text = ''
+        end
+        object mskedtCCNElek: TMaskEdit
+          Left = 64
+          Top = 178
+          Width = 201
+          Height = 23
+          TabOrder = 4
+          Text = ''
+          TextHint = 'Enter the credit card number '
+        end
+        object memElectricityBill: TMemo
+          Left = 640
+          Top = 13
+          Width = 425
+          Height = 532
+          Lines.Strings = (
+            '')
+          TabOrder = 5
+        end
+        object btnPayElectricityBill: TButton
+          Left = 64
+          Top = 301
+          Width = 154
+          Height = 54
+          Caption = 'PAY BILL'
+          TabOrder = 6
+          OnClick = btnPayElectricityBillClick
+        end
+        object cbxSaveCCInfoElec: TCheckBox
+          Left = 64
+          Top = 257
+          Width = 121
+          Height = 17
+          Caption = 'Save Information?'
+          TabOrder = 7
+        end
+        object btnRemoveBillElec: TButton
+          Left = 456
+          Top = 130
+          Width = 153
+          Height = 45
+          Caption = 'Remove Last Bill'
+          TabOrder = 8
+          OnClick = btnRemoveBillElecClick
+        end
+        object btnSaveandCloseElec: TButton
+          Left = 456
+          Top = 498
+          Width = 153
+          Height = 45
+          Caption = 'Save and Close'
+          TabOrder = 9
+          OnClick = btnSaveandCloseElecClick
+        end
+      end
+    end
+  end
+  object tmrWelcome: TTimer
+    OnTimer = tmrWelcomeTimer
+    Left = 105
+    Top = 62
+  end
+end

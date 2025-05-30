@@ -8,7 +8,7 @@ const projects = [
     technologies: ["React", "JavaScript", "CSS", "WebGL"],
     imageUrl: "/portfolio-preview.png",
     projectUrl: "https://ulrichsnyman.com",
-    githubUrl: "https://github.com/ulrichsnyman/portfolio"
+    githubUrl: "https://github.com/Thefirstxerg/Ulrich_Snyman_Portfolio_Website"
   },
   {
     title: "MySQL Database Project",
@@ -22,7 +22,7 @@ const projects = [
     description: "A desktop application built with Delphi featuring modern UI and efficient data processing.",
     technologies: ["Delphi", "SQL", "Object Pascal"],
     imageUrl: "/delphi-preview.png",
-    githubUrl: "https://github.com/ulrichsnyman/delphi-project"
+    githubUrl: "https://github.com/Thefirstxerg/Delphi-PAT"
   }
 ];
 

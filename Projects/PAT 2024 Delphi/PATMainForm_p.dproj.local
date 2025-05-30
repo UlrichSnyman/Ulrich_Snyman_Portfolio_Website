@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/08/11 12:19:58.000.311,=C:\Users\ulric\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/08/11 12:20:39.000.896,C:\Users\ulric\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\ulric\OneDrive\Documents\PAT 2024 IT\PATMainForm_u.dfm</Transaction>
+    <Transaction>2024/08/11 12:20:39.000.896,C:\Users\ulric\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\ulric\OneDrive\Documents\PAT 2024 IT\PATMainForm_u.pas</Transaction>
+    <Transaction>2024/08/11 12:20:52.000.291,C:\Users\ulric\OneDrive\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\ulric\OneDrive\Documents\PAT 2024 IT\PATMainForm_p.dproj</Transaction>
+    <Transaction>2024/08/11 14:07:47.000.872,=C:\Users\ulric\OneDrive\Documents\PAT 2024 IT\Unit1.pas</Transaction>
+    <Transaction>2024/08/11 16:26:47.000.770,=C:\Users\ulric\OneDrive\Documents\PAT 2024 IT\Unit1.pas</Transaction>
+    <Transaction>2024/08/11 16:28:03.000.440,C:\Users\ulric\OneDrive\Documents\PAT 2024 IT\Unit1.pas=C:\Users\ulric\OneDrive\Documents\PAT 2024 IT\cStylizeAll_u.pas</Transaction>
+    <Transaction>2024/08/11 16:29:12.000.219,=C:\Users\ulric\OneDrive\Documents\PAT 2024 IT\Unit1.pas</Transaction>
+    <Transaction>2024/08/11 16:30:16.000.780,C:\Users\ulric\OneDrive\Documents\PAT 2024 IT\Unit1.pas=C:\Users\ulric\OneDrive\Documents\PAT 2024 IT\cTextfiles_config_p.pas</Transaction>
+  </Transactions>
+</BorlandProject>

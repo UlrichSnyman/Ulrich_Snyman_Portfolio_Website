@@ -1,0 +1,189 @@
+////////////////////////////////////////////////////////////////////////////////
+{         PURPOSE IS TO PROPORLY ALIGN THE COMPONENTS ON THE PAGE
+         SINCE IT IS ALMOST IMPOSSIBLE TO GET A COMPONENT PRECISELY
+                      IN THE MIDDLE WHERE YOU WANT IT                          }
+////////////////////////////////////////////////////////////////////////////////
+unit cStylizeAll_u;
+
+interface
+
+uses
+  Vcl.Forms, Vcl.Controls, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.ExtCtrls, Vcl.Mask,
+  System.Classes, System.SysUtils, Vcl.Graphics;
+
+type
+  TStylizer = class
+  private
+    FForm: TForm;
+    function FindComponent(const AName: string): TComponent;
+    procedure SetComponentBounds(const AName: string; ALeft, ATop, AWidth, AHeight: Integer);
+    procedure SetLabelProperties(const AName: string; AFontSize: Integer; AFontStyle: TFontStyles);
+  public
+    constructor Create(AForm: TForm);
+    procedure StyleLoginTabSheet;
+    procedure StyleRegisterTabSheet;
+    procedure StyleWelcomeTabSheet;
+  end;
+
+implementation
+
+constructor TStylizer.Create(AForm: TForm);
+begin
+  inherited Create;
+  FForm := AForm;
+end;
+
+function TStylizer.FindComponent(const AName: string): TComponent;
+begin
+  Result := nil;
+  if Assigned(FForm) then
+    Result := FForm.FindComponent(AName);
+end;
+
+procedure TStylizer.SetComponentBounds(const AName: string; ALeft, ATop, AWidth, AHeight: Integer);
+var
+  Component: TComponent;
+begin
+  Component := FindComponent(AName);
+  if Component is TControl then
+  begin
+    TControl(Component).Left := ALeft;
+    TControl(Component).Top := ATop;
+    TControl(Component).Width := AWidth;
+    TControl(Component).Height := AHeight;
+  end;
+end;
+
+procedure TStylizer.SetLabelProperties(const AName: string; AFontSize: Integer; AFontStyle: TFontStyles);
+var
+  LabelComponent: TLabel;
+begin
+  LabelComponent := FindComponent(AName) as TLabel;
+  if Assigned(LabelComponent) then
+  begin
+    LabelComponent.Font.Size := AFontSize;
+    LabelComponent.Font.Style := AFontStyle;
+  end;
+end;
+
+procedure TStylizer.StyleLoginTabSheet;
+var
+  TabSheet: TTabSheet;
+  Panel: TPanel;
+  CenterX, TopMargin, Spacing: Integer;
+begin
+  TabSheet := FindComponent('tbsLogin') as TTabSheet;
+  if not Assigned(TabSheet) then Exit;
+
+  Panel := FindComponent('pnlLogin') as TPanel;
+  if Assigned(Panel) then
+  begin
+    Panel.Align := alClient;
+    Panel.BevelOuter := bvNone;
+  end;
+
+  //edit the below values
+  CenterX := TabSheet.Width div 2;
+  TopMargin := 120;
+  Spacing := 40;
+
+  SetLabelProperties('lblLogin', 36, [fsBold]);
+  SetComponentBounds('lblLogin', CenterX - 150, TopMargin, 300, 150);
+
+  SetLabelProperties('lblUsername', 14, []);
+  SetComponentBounds('lblUsername', CenterX - 150, TopMargin + Spacing * 2, 300, 25);
+  SetComponentBounds('mskedtUsername', CenterX - 150, TopMargin + Spacing * 2 + 30, 300, 30);
+
+  SetLabelProperties('lblPassword', 14, []);
+  SetComponentBounds('lblPassword', CenterX - 150, TopMargin + Spacing * 4, 300, 25);
+  SetComponentBounds('mskedtPassword', CenterX - 150, TopMargin + Spacing * 4 + 30, 300, 30);
+
+  SetComponentBounds('btnLogin', CenterX - 75, TopMargin + Spacing * 6, 150, 40);
+
+  SetLabelProperties('lblHyperlinkLogintoRegister', 10, [fsUnderline]);
+  SetComponentBounds('lblHyperlinkLogintoRegister', CenterX - 125, TopMargin + Spacing * 7 + 20, 250, 25);
+end;
+
+procedure TStylizer.StyleRegisterTabSheet;
+var
+  TabSheet: TTabSheet;
+  Panel: TPanel;
+  CenterX, TopMargin, Spacing, i: Integer;
+  ComponentNames: array[0..7] of string;
+begin
+  ComponentNames[0] := 'Username'; ComponentNames[1] := 'Email'; ComponentNames[2] := 'Adres';
+  ComponentNames[3] := 'City'; ComponentNames[4] := 'Postalcode'; ComponentNames[5] := 'PhoneNum';
+  ComponentNames[6] := 'Password'; ComponentNames[7] := 'PasswordVerify';
+
+  TabSheet := FindComponent('tbsRegister') as TTabSheet;
+  if not Assigned(TabSheet) then Exit;
+
+  Panel := FindComponent('pnlRegister') as TPanel;
+  if Assigned(Panel) then
+  begin
+    Panel.Align := alClient;
+    Panel.BevelOuter := bvNone;
+  end;
+
+  //edit the below values
+  CenterX := TabSheet.Width div 2;
+  TopMargin := 60;
+  Spacing := 40;
+
+  SetLabelProperties('lblRegister', 36, [fsBold]);
+  SetComponentBounds('lblRegister', CenterX - 120, TopMargin - 20, 300, 150);
+
+  for i := 0 to 7 do
+  begin
+    SetLabelProperties('lbl' + ComponentNames[i] + 'Reg', 12, []);
+    SetComponentBounds('lbl' + ComponentNames[i] + 'Reg', CenterX - 220, TopMargin + 70 + i * Spacing, 200, 25);
+    SetComponentBounds('mskedt' + ComponentNames[i] + 'Reg', CenterX - 10, TopMargin + 70 + i * Spacing, 230, 25);
+  end;
+
+  SetComponentBounds('btnRegister', CenterX - 75, TopMargin + 70 + 8 * Spacing + 10, 150, 40);
+
+  SetLabelProperties('lblHyperlinkRegistertoLogin', 10, [fsUnderline]);
+  SetComponentBounds('lblHyperlinkRegistertoLogin', CenterX - 125, TopMargin + 70 + 9 * Spacing + 20, 250, 25);
+end;
+
+procedure TStylizer.StyleWelcomeTabSheet;
+var
+  TabSheet: TTabSheet;
+  Panel: TPanel;
+  CenterX, TopMargin, Spacing: Integer;
+begin
+  TabSheet := FindComponent('tbsWelcome') as TTabSheet;
+  if not Assigned(TabSheet) then Exit;
+
+  Panel := FindComponent('pnlWelcome') as TPanel;
+  if Assigned(Panel) then
+  begin
+    Panel.Align := alClient;
+    Panel.BevelOuter := bvNone;
+  end;
+
+  //Edit the below values
+  CenterX := TabSheet.Width div 2;
+  TopMargin := 40;
+  Spacing := 50;
+
+  SetLabelProperties('lblWelcome', 36, [fsBold]);
+  SetComponentBounds('lblWelcome', CenterX - 200, TopMargin, 400, 150);
+
+  SetComponentBounds('imgUserAvatar', CenterX - 50, TopMargin + Spacing * 2, 100, 100);
+  SetComponentBounds('btnEditProfile', CenterX - 60, TopMargin + Spacing * 5, 120, 35);
+
+  SetLabelProperties('lblTotalBills', 14, [fsBold]);
+  SetComponentBounds('lblTotalBills', CenterX - 50, TopMargin + Spacing * 6, 300, 25);
+
+  SetLabelProperties('lblLastLogin', 14, []);
+  SetComponentBounds('lblLastLogin', CenterX - 200, TopMargin + Spacing * 7, 400, 25);
+
+  SetLabelProperties('lblTime', 14, []);
+  SetComponentBounds('lblTime', CenterX - 150, TopMargin + Spacing * 8, 300, 25);
+
+  SetComponentBounds('btnElectricityOverview', CenterX - 250, TopMargin + Spacing * 9, 200, 40);
+  SetComponentBounds('btnWaterOverview', CenterX + 100, TopMargin + Spacing * 9, 200, 40);
+  SetComponentBounds('btnWelcomeSaveQuit', CenterX - 75, TopMargin + Spacing * 10, 200, 40);
+end;
+end.

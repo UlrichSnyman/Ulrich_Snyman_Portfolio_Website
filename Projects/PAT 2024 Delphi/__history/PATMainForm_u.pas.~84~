@@ -1,0 +1,543 @@
+////////////////////////////////////////////////////////////////////////////////
+{                          ULRICH SNYMAN 2024 PAT
+ STEL VOOR MAAK ALLE PROCEDURES EN FUNCTIONS TOE VIR MAKLIKER TOEGANG TOT KODE
+                                                                               }
+////////////////////////////////////////////////////////////////////////////////
+unit PATMainForm_u;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
+  Vcl.StdCtrls, System.UITypes, Math, Jpeg,
+  Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.Mask,
+  cTextfiles_config_p, cStylizeAll_u, Vcl.Buttons;
+
+type
+  TfrmMain = class(TForm)
+    PageControl1: TPageControl;
+    tbsLogin: TTabSheet;
+    tbsRegister: TTabSheet;
+    pnlRegister: TPanel;
+    lblRegister: TLabel;
+    lblUsernameReg: TLabel;
+    lblPostalcode: TLabel;
+    lblHyperlinkRegistertoLogin: TLabel;
+    lblCityReg: TLabel;
+    lblAdresReg: TLabel;
+    lblEmailReg: TLabel;
+    lblPhoneNumReg: TLabel;
+    lblPasswordReg: TLabel;
+    lblPasswordVerifyReg: TLabel;
+    mskedtUsernameReg: TMaskEdit;
+    mskedtPostalCodeReg: TMaskEdit;
+    btnRegister: TButton;
+    mskedtCityReg: TMaskEdit;
+    mskedtAdresReg: TMaskEdit;
+    mskedtEmailReg: TMaskEdit;
+    mskedtPhoneNumReg: TMaskEdit;
+    mskedtPasswordReg: TMaskEdit;
+    mskedtPasswordVerifyReg: TMaskEdit;
+    tbsWater: TTabSheet;
+    tbsWelcome: TTabSheet;
+    tbsElectricity: TTabSheet;
+    pnlLogin: TPanel;
+    mskedtPassword: TMaskEdit;
+    lblPassword: TLabel;
+    mskedtUsername: TMaskEdit;
+    lblUsername: TLabel;
+    lblLogin: TLabel;
+    btnLogin: TButton;
+    lblHyperlinkLogintoRegister: TLabel;
+    pnlWelcome: TPanel;
+    lblWelcome: TLabel;
+    btnElectricityOverview: TButton;
+    pnlElectricityBillOverview: TPanel;
+    lblElectricityBillOverview: TLabel;
+    lblbAccHolderNameElec: TLabel;
+    lblSecurityCodeElec: TLabel;
+    lblExpDateElec: TLabel;
+    lblCCNElec: TLabel;
+    mskedtAccHolderNameElec: TMaskEdit;
+    btnAddBillElec: TButton;
+    mskedtSecurityCodeElec: TMaskEdit;
+    mskedtExpDateElek: TMaskEdit;
+    mskedtCCNElek: TMaskEdit;
+    btnWelcomeSaveQuit: TButton;
+    btnWaterOverview: TButton;
+    memElectricityBill: TMemo;
+    btnPayElectricityBill: TButton;
+    cbxSaveCCInfoElec: TCheckBox;
+    btnRemoveBillElec: TButton;
+    btnSaveandCloseElec: TButton;
+    pnlWaterBillOverview: TPanel;
+    lblWaterBillOverview: TLabel;
+    lblAccHolderNameWater: TLabel;
+    lblSecurityCodeWater: TLabel;
+    lblExpDateWater: TLabel;
+    lblCCNWater: TLabel;
+    mskedtAccHolderNameWater: TMaskEdit;
+    btnAddBillWater: TButton;
+    mskedtSecurityCodeWater: TMaskEdit;
+    mskedtExpDateWater: TMaskEdit;
+    mskedtCCNWater: TMaskEdit;
+    memWaterBill: TMemo;
+    btnPayBillWater: TButton;
+    cbxSaveCCInfoWater: TCheckBox;
+    btnRemoveBillWater: TButton;
+    btnSaveandCloseWater: TButton;
+    tmrWelcome: TTimer;
+    lblTotalBills: TLabel;
+    lblLastLogin: TLabel;
+    lblTime: TLabel;
+    imgUserAvatar: TImage;
+    btnEditProfile: TSpeedButton;
+    procedure lblHyperlinkLogintoRegisterClick(Sender: TObject);
+    procedure lblHyperlinkRegistertoLoginClick(Sender: TObject);
+    procedure btnRegisterClick(Sender: TObject);
+    procedure btnLoginClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btnElectricityOverviewClick(Sender: TObject);
+    procedure btnWaterOverviewClick(Sender: TObject);
+    procedure btnWelcomeSaveQuitClick(Sender: TObject);
+    procedure btnPayElectricityBillClick(Sender: TObject);
+    procedure btnAddBillElecClick(Sender: TObject);
+    procedure btnRemoveBillElecClick(Sender: TObject);
+    procedure btnSaveandCloseElecClick(Sender: TObject);
+    procedure btnPayBillWaterClick(Sender: TObject);
+    procedure btnAddBillWaterClick(Sender: TObject);
+    procedure btnRemoveBillWaterClick(Sender: TObject);
+    procedure btnSaveandCloseWaterClick(Sender: TObject);
+    procedure btnEditProfileClick(Sender: TObject);
+    procedure tmrWelcomeTimer(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+  private
+    FUserName: string;
+    FStylizer: TStylizer;
+
+    procedure SaveCreditCardInfo;
+    function GenerateRandomBill: string;
+    procedure StyleMemo;
+    procedure SaveWaterCreditCardInfo;
+    function ValidateCreditCardInfo: Boolean;
+    function GenerateRandomWaterBill: string;
+    procedure StyleWaterMemo;
+
+    procedure UpdateWelcomeInfo;
+    function GetTotalBillCount: Integer;
+    procedure LoadUserAvatar;
+
+  public
+    procedure SetUserName(const AUserName: string);
+    { Public declarations }
+  end;
+
+var
+  frmMain: TfrmMain;
+
+implementation
+
+{$R *.dfm}
+
+////////////////////////////////////////////////////////////////////////////////
+{                                 EVENTS                                       }
+////////////////////////////////////////////////////////////////////////////////
+procedure TfrmMain.FormCreate(Sender: TObject);
+begin
+  FStylizer := TStylizer.Create(Self);
+  StyleMemo;
+
+  Pagecontrol1.ActivePage := tbsLogin;
+
+  tmrWelcome.Interval := 1000; // Update every second
+  tmrWelcome.Enabled := True;
+end;
+
+procedure TfrmMain.FormDestroy(Sender: TObject);
+begin
+  FStylizer.Free;
+end;
+
+procedure TfrmMain.FormShow(Sender: TObject);
+begin
+  FStylizer.StyleLoginTabSheet;
+  FStylizer.StyleRegisterTabSheet;
+  FStylizer.StyleWelcomeTabSheet;
+
+  UpdateWelcomeInfo;
+  LoadUserAvatar;
+end;
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+{                        FUNCTIONS & PROCEDURES                                }
+////////////////////////////////////////////////////////////////////////////////
+procedure TfrmMain.SaveWaterCreditCardInfo;
+var
+  FileName: string;
+  FileContent: TStringList;
+begin
+  if cbxSaveCCInfoWater.Checked then
+  begin
+    if ValidateCreditCardInfo then
+    begin
+      FileName := GetCurrentDir + '\' + mskedtAccHolderNameWater.Text + '_water_cc_info.txt';
+      FileContent := TStringList.Create;
+      try
+        FileContent.Add('Account Holder: ' + mskedtAccHolderNameWater.Text);
+        FileContent.Add('Credit Card Number: ' + mskedtCCNWater.Text);
+        FileContent.Add('Expiration Date: ' + mskedtExpDateWater.Text);
+        FileContent.Add('Security Code: ' + mskedtSecurityCodeWater.Text);
+        FileContent.SaveToFile(FileName);
+        ShowMessage('Water bill credit card information saved successfully.');
+      finally
+        FileContent.Free;
+      end;
+    end;
+  end;
+end;
+
+procedure TfrmMain.SetUserName(const AUserName: string);
+begin
+  FUserName := AUserName;
+  UpdateWelcomeInfo;
+end;
+
+function TfrmMain.GenerateRandomBill: string;
+
+
+var
+  BillDate: TDateTime;
+  Amount: Double;
+begin
+  BillDate := Date - Random(30);  // Random date within the last 30 days
+  Amount := RandomRange(5000, 15000) / 100;  // Random amount between 50 and 150
+  Result := FormatDateTime('yyyy-mm-dd', BillDate) + #9 +
+            'Electricity' + #9 +
+            FormatFloat('0.00', Amount);
+end;
+
+function TfrmMain.ValidateCreditCardInfo: Boolean;
+var
+  ExpDate: TDateTime;
+  CCNumber: string;
+begin
+  Result := False;
+
+  if Trim(mskedtAccHolderNameWater.Text) = '' then
+    ShowMessage('Please enter the account holder name.')
+  else
+  begin
+    CCNumber := StringReplace(mskedtCCNWater.Text, ' ', '', [rfReplaceAll]);
+    if Length(CCNumber) <> 16 then
+      ShowMessage('Please enter a valid 16-digit credit card number.')
+    else if not TryStrToDate(mskedtExpDateWater.Text, ExpDate) then
+      ShowMessage('Please enter a valid expiration date.')
+    else if Length(Trim(mskedtSecurityCodeWater.Text)) <> 3 then
+      ShowMessage('Please enter a valid 3-digit security code.')
+    else
+      Result := True;
+  end;
+end;
+
+function TfrmMain.GenerateRandomWaterBill: string;
+var
+  BillDate: TDateTime;
+  Amount: Double;
+begin
+  BillDate := Date - Random(30);
+  Amount := RandomRange(3000, 10000) / 100;
+  Result := FormatDateTime('yyyy-mm-dd', BillDate) + #9 +
+            'Water Usage' + #9 +
+            FormatFloat('0.00', Amount);
+end;
+
+function TfrmMain.GetTotalBillCount: Integer;
+begin
+  // TODO: Implement actual bill counting logic
+  Result := Random(10); // Placeholder: returns a random number between 0 and 9
+end;
+
+procedure TfrmMain.LoadUserAvatar;
+begin
+  // TODO: Implement logic to load user's avatar
+  // For now, we'll use a placeholder image
+  imgUserAvatar.Picture.LoadFromFile('DefaultProfile.jpg');
+end;
+
+procedure TfrmMain.SaveCreditCardInfo;
+var
+  FileName: string;
+  FileContent: TStringList;
+begin
+  if cbxSaveCCInfoElec.Checked then
+  begin
+    FileName := GetCurrentDir + '\' + mskedtAccHolderNameElec.Text + '_cc_info.txt';
+    FileContent := TStringList.Create;
+    try
+      FileContent.Add('Account Holder: ' + mskedtAccHolderNameElec.Text);
+      FileContent.Add('Credit Card Number: ' + mskedtCCNElek.Text);
+      FileContent.Add('Expiration Date: ' + mskedtExpDateElek.Text);
+      FileContent.Add('Security Code: ' + mskedtSecurityCodeElec.Text);
+      FileContent.SaveToFile(FileName);
+      ShowMessage('Credit card information saved successfully.');
+    finally
+      FileContent.Free;
+    end;
+  end;
+end;
+
+procedure TfrmMain.StyleMemo;
+begin
+  memElectricityBill.Font.Name := 'Courier New';
+  memElectricityBill.Font.Size := 10;
+  memElectricityBill.Lines.Add('Date'#9'Description'#9'Amount');
+  memElectricityBill.Lines.Add('----'#9'-----------'#9'------');
+end;
+
+procedure TfrmMain.StyleWaterMemo;
+begin
+  memWaterBill.Font.Name := 'Courier New';
+  memWaterBill.Font.Size := 10;
+  memWaterBill.Lines.Add('Date'#9'Description'#9'Amount');
+  memWaterBill.Lines.Add('----'#9'-----------'#9'------');
+end;
+
+procedure TfrmMain.tmrWelcomeTimer(Sender: TObject);
+begin
+  lblTime.Caption := 'Current time: ' + FormatDateTime('hh:nn:ss AM/PM', Now);
+end;
+
+procedure TfrmMain.UpdateWelcomeInfo;
+begin
+  lblWelcome.Caption := 'Welcome back, ' + FUserName + '!';
+  lblLastLogin.Caption := 'Last login: ' + FormatDateTime('dddd, mmmm d, yyyy "at" hh:nn AM/PM', Now);
+  lblTotalBills.Caption := 'Total bills: ' + IntToStr(GetTotalBillCount);
+end;
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+{                                BUTTONS                                       }
+////////////////////////////////////////////////////////////////////////////////
+procedure TfrmMain.lblHyperlinkLogintoRegisterClick(Sender: TObject);
+begin
+  if Assigned(PageControl1) and Assigned(tbsRegister) then
+  begin
+    PageControl1.ActivePage := tbsRegister;
+    tbsRegister.TabVisible := True;
+    tbsLogin.TabVisible := False;
+  end;
+end;
+
+procedure TfrmMain.lblHyperlinkRegistertoLoginClick(Sender: TObject);
+begin
+  if Assigned(PageControl1) and Assigned(tbsLogin) then
+    PageControl1.ActivePage := tbsLogin;
+end;
+
+procedure TfrmMain.btnLoginClick(Sender: TObject);
+var
+  Username, Password: string;
+begin
+  Username := mskedtUsername.Text;
+  Password := mskedtPassword.Text;
+
+  if (Username = '') or (Password = '') then
+  begin
+    ShowMessage('Please enter both username and password.');
+    Exit;
+  end;
+
+  if TTextFileConfig.ValidateUser(Username, Password) then
+  begin
+    ShowMessage('Login successful!');
+    PageControl1.ActivePage := tbsWelcome;
+    // TODO: Perform any additional post-login actions if needed
+  end
+  else
+    ShowMessage('Invalid username or password.');
+end;
+
+procedure TfrmMain.btnRegisterClick(Sender: TObject);
+var
+  Username, Email, Address, City, PostalCode, PhoneNumber, Password,
+    VerifyPassword: string;
+  UserData: string;
+begin
+  Username := mskedtUsernameReg.Text;
+  Email := mskedtEmailReg.Text;
+  Address := mskedtAdresReg.Text;
+  City := mskedtCityReg.Text;
+  PostalCode := mskedtPostalCodeReg.Text;
+  PhoneNumber := mskedtPhoneNumReg.Text;
+  Password := mskedtPasswordReg.Text;
+  VerifyPassword := mskedtPasswordVerifyReg.Text;
+
+  // Basic input validation
+  if (Username = '') or (Email = '') or (Password = '') or (VerifyPassword = '')
+  then
+  begin
+    ShowMessage('Please fill in all required fields.');
+    Exit;
+  end;
+
+  if Password <> VerifyPassword then
+  begin
+    ShowMessage('Passwords do not match.');
+    Exit;
+  end;
+
+  if TTextFileConfig.UserExists(Username) then
+  begin
+    ShowMessage('Username already exists. Please choose a different username.');
+    Exit;
+  end;
+
+  // Construct user data string
+  UserData := Format('%s#%s#%s#%s#%s#%s#%s', [Username, Password, Email,
+    Address, City, PostalCode, PhoneNumber]);
+
+  // Add user to file
+  TTextFileConfig.AddUser(UserData);
+
+  ShowMessage('Registration successful!');
+
+  // Clear input fields
+  mskedtUsernameReg.Clear;
+  mskedtEmailReg.Clear;
+  mskedtAdresReg.Clear;
+  mskedtCityReg.Clear;
+  mskedtPostalCodeReg.Clear;
+  mskedtPhoneNumReg.Clear;
+  mskedtPasswordReg.Clear;
+  mskedtPasswordVerifyReg.Clear;
+
+  // Optionally, switch to login tab
+  PageControl1.ActivePage := tbsLogin;
+end;
+
+procedure TfrmMain.btnPayBillWaterClick(Sender: TObject);
+var
+  TotalAmount: Double;
+  i: Integer;
+  SplitLine: TArray<string>;
+begin
+  if ValidateCreditCardInfo then
+  begin
+    SaveWaterCreditCardInfo;
+
+    TotalAmount := 0;
+    for i := 2 to memWaterBill.Lines.Count - 1 do
+    begin
+      SplitLine := memWaterBill.Lines[i].Split([#9]);
+      if Length(SplitLine) = 3 then
+        TotalAmount := TotalAmount + StrToFloatDef(SplitLine[2], 0);
+    end;
+
+    memWaterBill.Lines.Add('');
+    memWaterBill.Lines.Add('Total Water Bill Amount Paid: ' + FormatFloat('0.00', TotalAmount));
+    ShowMessage('Water bill payment of R' + FormatFloat('0.00', TotalAmount) + ' processed successfully.');
+
+    memWaterBill.Lines.Clear;
+    StyleWaterMemo;
+  end;
+end;
+
+procedure TfrmMain.btnPayElectricityBillClick(Sender: TObject);
+var
+  TotalAmount: Double;
+  i: Integer;
+  SplitLine: TArray<string>;
+begin
+  SaveCreditCardInfo;
+
+  TotalAmount := 0;
+  for i := 2 to memElectricityBill.Lines.Count - 1 do  // Skip header
+  begin
+    SplitLine := memElectricityBill.Lines[i].Split([#9]);
+    if Length(SplitLine) = 3 then
+      TotalAmount := TotalAmount + StrToFloatDef(SplitLine[2], 0);
+  end;
+
+  memElectricityBill.Lines.Add('');
+  memElectricityBill.Lines.Add('Total Amount Paid: ' + FormatFloat('0.00', TotalAmount));
+  ShowMessage('Payment of R' + FormatFloat('0.00', TotalAmount) + ' processed successfully.');
+
+  // Clear the bills after payment
+  memElectricityBill.Lines.Clear;
+  StyleMemo;
+end;
+
+procedure TfrmMain.btnRemoveBillElecClick(Sender: TObject);
+begin
+  if memElectricityBill.Lines.Count > 2 then  // Keep the header
+    memElectricityBill.Lines.Delete(memElectricityBill.Lines.Count - 1)
+  else
+    ShowMessage('No bills to remove.');
+end;
+
+procedure TfrmMain.btnRemoveBillWaterClick(Sender: TObject);
+begin
+  if memWaterBill.Lines.Count > 2 then
+    memWaterBill.Lines.Delete(memWaterBill.Lines.Count - 1)
+  else
+    ShowMessage('No water bills to remove.');
+end;
+
+procedure TfrmMain.btnSaveandCloseElecClick(Sender: TObject);
+begin
+  SaveCreditCardInfo;
+  ShowMessage('Information saved. Returning to main menu.');
+  PageControl1.ActivePage := tbsWelcome;  // Assuming you have a welcome tab
+end;
+
+procedure TfrmMain.btnSaveandCloseWaterClick(Sender: TObject);
+begin
+  SaveWaterCreditCardInfo;
+  ShowMessage('Water bill information saved. Returning to main menu.');
+  PageControl1.ActivePage := tbsWelcome;
+end;
+
+procedure TfrmMain.btnAddBillElecClick(Sender: TObject);
+begin
+memElectricityBill.Lines.Add(GenerateRandomBill);
+end;
+
+procedure TfrmMain.btnAddBillWaterClick(Sender: TObject);
+begin
+ memWaterBill.Lines.Add(GenerateRandomWaterBill);
+end;
+
+procedure TfrmMain.btnEditProfileClick(Sender: TObject);
+begin
+ // TODO: Implement profile editing functionality
+  ShowMessage('Editing coming soon');
+end;
+
+procedure TfrmMain.btnElectricityOverviewClick(Sender: TObject);
+begin
+PageControl1.ActivePage := tbsElectricity;
+end;
+
+procedure TfrmMain.btnWaterOverviewClick(Sender: TObject);
+begin
+PageControl1.ActivePage := tbsWater;
+end;
+
+procedure TfrmMain.btnWelcomeSaveQuitClick(Sender: TObject);
+begin
+ if MessageDlg('Are you sure you want to save and exit?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  begin
+    ShowMessage('Saving and exiting...');
+    Close;
+    // TODO: Implement save functionality
+  end;
+end;
+////////////////////////////////////////////////////////////////////////////////
+end.
