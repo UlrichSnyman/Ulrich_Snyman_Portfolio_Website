@@ -3,7 +3,7 @@
 // Create a global init function that can be called from React
 window.initFluid = function(canvas) {
   canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight + 1;
+  canvas.height = canvas.clientHeight;
 
 let config = {
   SIM_RESOLUTION: 256,

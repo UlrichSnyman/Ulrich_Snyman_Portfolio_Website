@@ -19,43 +19,21 @@ const techData = [
 ];
 
 function TechnologiesBanner() {
-  const [modal, setModal] = useState({ open: false, tech: null });
-
-  const handleIconClick = (tech) => {
-    setModal({ open: true, tech });
-  };
-
-  const closeModal = () => setModal({ open: false, tech: null });
-
-  return (
-    <>
-      <section className="certificates-banner animate-slide-in">
-        <h2>Technologies</h2>
-        <div className="certificates-images">
-          {techData.map((tech) => (
-            <img
-              key={tech.name}
-              src={tech.img}
-              alt={tech.name}
-              title={tech.name}
-              onClick={() => handleIconClick(tech)}
-              style={{ cursor: 'pointer' }}
-              className="animate-pop"
-            />
-          ))}
-        </div>
-      </section>
-      {modal.open && (
-        <div className="tech-modal" onClick={closeModal}>
-          <div className="tech-modal-content animate-fade-in" onClick={e => e.stopPropagation()}>
-            <h3>{modal.tech.name}</h3>
-            <a href={modal.tech.project} target="_blank" rel="noopener noreferrer" className="modal-link">View Project</a>
-            <a href={modal.tech.source} target="_blank" rel="noopener noreferrer" className="modal-link">Download Source</a>
-            <button className="modal-close" onClick={closeModal}>Close</button>
-          </div>
-        </div>
-      )}
-    </>
+  return (    
+   <section id="skills" className="technologies-banner animate-slide-in">
+      <h2>Technologies</h2>
+      <div className="technologies-grid">
+        {techData.map((tech) => (
+          <img
+            key={tech.name}
+            src={tech.img}
+            alt={tech.name}
+            title={tech.name}
+            className="technology-icon animate-pop"
+          />
+        ))}
+      </div>
+    </section>
   );
 }
 

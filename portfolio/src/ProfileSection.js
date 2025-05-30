@@ -4,10 +4,11 @@ function ProfileSection() {
   return (
     <div className="profile-section animate-fade-in">
       <div className="profile-image">
-        <img src="https://via.placeholder.com/180x180.png?text=Your+Image" alt="Profile" />
+        <img src="/Pfp.jpg" alt="Profile" />
       </div>
       <h1>Ulrich Snyman</h1>
-      <p>Welcome to my portfolio website!</p>
+      <p>Full-Stack Developer & Software Engineering Student</p>
+      <p>Passionate about creating beautiful and functional web applications</p>
     </div>
   );
 }
