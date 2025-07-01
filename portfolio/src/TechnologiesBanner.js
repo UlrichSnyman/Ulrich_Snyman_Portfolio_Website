@@ -17,7 +17,8 @@ const techData = [
   { name: 'HTMX', img: '/htmx.png', project: 'https://github.com/ulrichsnyman/htmx-project', source: 'https://github.com/ulrichsnyman/htmx-project/archive/refs/heads/main.zip' },
   { name: 'Mongoose', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongoose/mongoose-original.svg', project: 'https://github.com/ulrichsnyman/mongoose-project', source: 'https://github.com/ulrichsnyman/mongoose-project/archive/refs/heads/main.zip' },
   { name: 'Microsoft Access', img: '/MicrosoftAccess.png', project: 'https://github.com/ulrichsnyman/access-project', source: 'https://github.com/ulrichsnyman/access-project' },
-  { name: 'Express', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', project: '', source: '' }
+  { name: 'Express', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', project: '', source: '' },
+  { name: 'HTML5', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', project: '', source: '' }
 ];
 
 function TechnologiesBanner() {
