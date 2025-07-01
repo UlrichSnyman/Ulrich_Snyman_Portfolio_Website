@@ -15,15 +15,16 @@ const projects = [
     description: "A real-time fluid simulation built with JavaScript and WebGL. Explore interactive fluid dynamics in your browser!",
     technologies: ["JavaScript", "WebGL", "HTML", "CSS"],
     imageUrl: "/Fluid_Sim.png",
-    projectUrl: "https://thefirstxerg.github.io/Ulrich_Snyman_Portfolio_Website/Projects/Fluid%20Sim/index.html",
+    projectUrl: "/Projects/Fluid Sim/index.html",
     githubUrl: "https://github.com/Thefirstxerg/Ulrich_Snyman_Portfolio_Website/tree/main/Projects/Fluid%20Sim"
   },
   {
-    title: "Delphi Application",
-    description: "A desktop application built with Delphi featuring modern UI and efficient data processing.",
-    technologies: ["Delphi", "SQL", "Object Pascal"],
-    imageUrl: "/delphi-preview.png",
-    githubUrl: "https://github.com/Thefirstxerg/Delphi-PAT"
+    title: "Cohort Randomizer",
+    description: "A web application for randomizing student cohorts, built with Django and Python, featuring a modern interface using JavaScript and HTMX.",
+    technologies: ["Python", "Django", "JavaScript", "HTMX", "CSS"],
+    imageUrl: "/Cohort_Randomizer.png",
+    projectUrl: "https://django-cre-project.onrender.com",
+    githubUrl: "https://github.com/Thefirstxerg/Django-CRE-Project"
   }
 ];
 
