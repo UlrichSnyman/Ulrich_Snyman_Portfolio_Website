@@ -41,11 +41,13 @@ function PortfolioSection() {
     <section id="projects" className="portfolio-section styled-section animate-fade-in">
       <div className="content-wrapper">
         <h2>Projects</h2>
+        <div className="projects-scroll-container">
           <div className="projects-grid">
             {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+              <ProjectCard key={index} {...project} />
             ))}
           </div>
+        </div>
       </div>
     </section>
   );

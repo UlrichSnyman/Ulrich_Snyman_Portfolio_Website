@@ -393,7 +393,7 @@ body {
 
 /* Update content wrapper for sections */
 .content-wrapper {
-  max-width: 1200px;
+  max-width: 1400px;
   width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
@@ -459,6 +459,26 @@ section[id] {
 }
 
 /* Projects grid layout */
+.projects-scroll-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 45, 45, 0.5) transparent;
+}
+
+.projects-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.projects-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 45, 45, 0.5);
+  border-radius: 4px;
+}
+
 .projects-grid {
   display: flex;
   flex-wrap: nowrap;
@@ -941,18 +961,10 @@ section[id] {
   width: 100%;
 }
 
-@media (max-width: 768px) {
-  .nav-content {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 0.8rem;
-  }
-  
-  .nav-links {
-    gap: 1rem;
-  }
-  
-  .nav-links a {
-    font-size: 1rem;
-  }
+.banner_canvas, #fluid-canvas {
+  pointer-events: none !important;
+}
+
+.App, .App-header, .portfolio-section, .content-wrapper, .projects-scroll-container, .projects-grid {
+  pointer-events: auto;
 }
