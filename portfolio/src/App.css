@@ -470,6 +470,7 @@ section[id] {
   padding-bottom: 1rem;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  align-items: stretch;
 }
 
 .projects-grid::-webkit-scrollbar {
@@ -490,6 +491,24 @@ section[id] {
   flex: 0 0 350px;
   min-width: 350px;
   max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-image {
+  flex-shrink: 0;
+}
+
+.project-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.project-links {
+  margin-top: auto;
 }
 
 .project-card {
