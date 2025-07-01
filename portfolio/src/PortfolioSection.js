@@ -15,7 +15,7 @@ const projects = [
     description: "A real-time fluid simulation built with JavaScript and WebGL. Explore interactive fluid dynamics in your browser!",
     technologies: ["JavaScript", "WebGL", "HTML", "CSS"],
     imageUrl: "/Fluid_Sim.png",
-    projectUrl: "/Projects/Fluid Sim/index.html",
+    projectUrl: "https://thefirstxerg.github.io/Ulrich_Snyman_Portfolio_Website/Projects/Fluid%20Sim/index.html",
     githubUrl: "https://github.com/Thefirstxerg/Ulrich_Snyman_Portfolio_Website/tree/main/Projects/Fluid%20Sim"
   },
   {
