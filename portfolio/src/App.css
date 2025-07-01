@@ -965,14 +965,6 @@ section[id] {
   pointer-events: none !important;
 }
 
-.App, .App-header, .portfolio-section, .content-wrapper, .projects-scroll-container, .projects-grid {
-  pointer-events: auto;
-}
-
-#fluid-canvas {
-  pointer-events: none !important;
-}
-
 @media (hover: hover) and (pointer: fine) {
   #fluid-canvas {
     pointer-events: auto !important;
