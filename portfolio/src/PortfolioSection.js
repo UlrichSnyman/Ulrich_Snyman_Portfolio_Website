@@ -6,7 +6,7 @@ const projects = [
     title: "Portfolio Website",
     description: "A modern portfolio website built with React featuring fluid animations and responsive design.",
     technologies: ["React", "JavaScript", "CSS", "WebGL"],
-    imageUrl: "/portfolio-preview.png",
+    imageUrl: "/portfolio_project.png",
     projectUrl: "https://ulsnportfolio.netlify.app",
     githubUrl: "https://github.com/Thefirstxerg/Ulrich_Snyman_Portfolio_Website"
   },

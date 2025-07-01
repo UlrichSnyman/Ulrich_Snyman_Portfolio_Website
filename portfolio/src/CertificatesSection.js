@@ -20,6 +20,11 @@ const certificates = [
     title: "Introduction to Programming",
     file: "Ulrich Snyman Intro to Programming.pdf",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+  },
+  {
+    title: "React",
+    file: "Ulrich Snyman React.pdf",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
   }
 ];
 
