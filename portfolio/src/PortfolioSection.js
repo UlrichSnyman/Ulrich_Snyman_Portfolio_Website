@@ -11,11 +11,12 @@ const projects = [
     githubUrl: "https://github.com/Thefirstxerg/Ulrich_Snyman_Portfolio_Website"
   },
   {
-    title: "MySQL Database Project",
-    description: "A comprehensive database management system with CRUD operations.",
-    technologies: ["MySQL", "PHP", "HTML", "CSS"],
-    imageUrl: "/mysql-preview.png",
-    githubUrl: "https://github.com/ulrichsnyman/mysql-project"
+    title: "Fluid Sim Project",
+    description: "A real-time fluid simulation built with JavaScript and WebGL. Explore interactive fluid dynamics in your browser!",
+    technologies: ["JavaScript", "WebGL", "HTML", "CSS"],
+    imageUrl: "/Fluid_Sim.png",
+    projectUrl: "https://thefirstxerg.github.io/Ulrich_Snyman_Portfolio_Website/Projects/Fluid%20Sim/index.html",
+    githubUrl: "https://github.com/Thefirstxerg/Ulrich_Snyman_Portfolio_Website/tree/main/Projects/Fluid%20Sim"
   },
   {
     title: "Delphi Application",
