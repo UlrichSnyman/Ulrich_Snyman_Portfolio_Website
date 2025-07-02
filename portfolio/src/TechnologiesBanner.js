@@ -18,7 +18,7 @@ const techData = [
   { name: 'Microsoft Access', img: '/MicrosoftAccess.png' },
   { name: 'Express', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
   { name: 'HTML5', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-  { name: 'WebGL', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webgl/webgl-original.svg' }
+  { name: 'WebGL', img: 'https://images.seeklogo.com/logo-png/31/1/webgl-logo-png_seeklogo-316725.png' }
 ];
 
 function TechnologiesBanner() {
