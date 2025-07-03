@@ -9,7 +9,8 @@ import FloatingNav from './FloatingNav';
 import AboutSection from './AboutSection';
 import ContactSection from './ContactSection';
 
-function MainPage() {  return (
+function MainPage() {
+  return (
     <>
       <FluidBackground />
       <FloatingNav />

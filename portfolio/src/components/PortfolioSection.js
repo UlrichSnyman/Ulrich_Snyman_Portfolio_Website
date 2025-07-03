@@ -6,7 +6,7 @@ const projects = [
     title: "Portfolio Website",
     description: "A modern portfolio website built with React featuring fluid animations and responsive design.",
     technologies: ["React", "JavaScript", "CSS", "WebGL", "HTML"],
-    imageUrl: "/portfolio_project.png",
+    imageUrl: require('../assets/images/portfolio_project.png'),
     projectUrl: "https://ulsnportfolio.netlify.app",
     githubUrl: "https://github.com/Thefirstxerg/Ulrich_Snyman_Portfolio_Website"
   },
@@ -14,7 +14,7 @@ const projects = [
     title: "Fluid Sim Project",
     description: "A real-time fluid simulation built with JavaScript and WebGL. Explore interactive fluid dynamics in your browser!",
     technologies: ["JavaScript", "WebGL", "HTML", "CSS", "HTML"],
-    imageUrl: "/Fluid_Sim.png",
+    imageUrl: require('../assets/images/Fluid_Sim.png'),
     projectUrl: "https://thefirstxerg.github.io/Ulrich_Snyman_Portfolio_Website/Projects/Fluid%20Sim/index.html",
     githubUrl: "https://github.com/Thefirstxerg/Ulrich_Snyman_Portfolio_Website/tree/main/Projects/Fluid%20Sim"
   },
@@ -22,7 +22,7 @@ const projects = [
     title: "Cohort Randomizer",
     description: "A web application for randomizing student cohorts, built with Django and Python, featuring a modern interface using JavaScript and HTMX.",
     technologies: ["Python", "Django", "JavaScript", "HTMX", "CSS"],
-    imageUrl: "/Cohort_Randomizer.png",
+    imageUrl: require('../assets/images/Cohort_Randomizer.png'),
     projectUrl: "https://django-cre-project.onrender.com",
     githubUrl: "https://github.com/Thefirstxerg/Django-CRE-Project"
   },
@@ -30,7 +30,7 @@ const projects = [
     title: "Firetrack",
     description: "A Firebase-based task manager app (to-do list) with full CRUD functionality. Organize and track your tasks in real time.",
     technologies: ["React", "Firebase", "JavaScript", "CSS", "HTML"],
-    imageUrl: "/firebase.png",
+    imageUrl: require('../assets/images/firebase.png'),
     projectUrl: "https://firebasefiretrack.netlify.app",
     githubUrl: "https://github.com/Thefirstxerg/React-Firebase-Project"
   },
@@ -38,7 +38,7 @@ const projects = [
     title: "Movie Review App",
     description: " A movie review application built with Django and React, allowing users to browse, review, and rate movies.",
     technologies: ["React", "JavaScript", "CSS", "HTML", "MongoDB", "Mongoose", "Express"],
-    imageUrl: "/Movie_Review.png",
+    imageUrl: require('../assets/images/Movie_Review.png'),
     projectUrl: "https://mern-movie-frontend-uhxq.onrender.com",
     githubUrl: "https://github.com/Thefirstxerg/MERN/tree/main/Code"}
 ];

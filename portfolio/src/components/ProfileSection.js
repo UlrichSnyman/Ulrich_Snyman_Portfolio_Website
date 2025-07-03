@@ -4,7 +4,7 @@ function ProfileSection() {
   return (
     <div className="profile-section animate-fade-in">
       <div className="profile-image">
-        <img src="/Pfp.jpg" alt="Profile" />
+        <img src={require('../assets/images/Pfp.jpg')} alt="Profile" />
       </div>
       <h1>Ulrich Snyman</h1>
       <p>Full-Stack Developer & Software Engineering Student</p>

@@ -3,27 +3,26 @@ import React from 'react';
 const certificates = [
   {
     title: "Node.js",
-    file: "Ulrich Snyman Node.js.pdf",
+    file: require('../assets/certs/Ulrich_Snyman_Node.js.pdf'),
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
   },
   {
     title: "Python",
-    file: "Ulrich Snyman Python.pdf",
+    file: require('../assets/certs/Ulrich_Snyman_Python.pdf'),
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
   },
   {
     title: "HTMX",
-    file: "Ulrich Snyman HTMX.pdf",
-    icon: "/htmx.png"
+    file: require('../assets/certs/Ulrich_Snyman_HTMX.pdf'),
+    icon: require('../assets/icons/htmx.png')
   },
   {
     title: "Introduction to Programming",
-    file: "Ulrich Snyman Intro to Programming.pdf",
+    file: require('../assets/certs/Ulrich_Snyman_Intro_to_Programming.pdf'),
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
   },
   {
     title: "React",
-    file: "Ulrich Snyman React.pdf",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
   }
 ];

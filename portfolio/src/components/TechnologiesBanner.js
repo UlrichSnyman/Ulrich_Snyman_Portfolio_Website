@@ -12,10 +12,10 @@ const techData = [
   { name: 'Firebase', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
   { name: 'MySQL', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
   { name: 'GitHub', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
-  { name: 'Delphi', img: '/delphi.png' },
-  { name: 'HTMX', img: '/htmx.png' },
+  { name: 'Delphi', img: require('../assets/icons/delphi.png') },
+  { name: 'HTMX', img: require('../assets/icons/htmx.png') },
   { name: 'Mongoose', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongoose/mongoose-original.svg' },
-  { name: 'Microsoft Access', img: '/MicrosoftAccess.png' },
+  { name: 'Microsoft Access', img: require('../assets/icons/MicrosoftAccess.png') },
   { name: 'Express', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
   { name: 'HTML5', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
   { name: 'WebGL', img: 'https://images.seeklogo.com/logo-png/31/1/webgl-logo-png_seeklogo-316725.png' }
