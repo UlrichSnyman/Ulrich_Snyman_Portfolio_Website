@@ -33,7 +33,14 @@ const projects = [
     imageUrl: "/firebase.png",
     projectUrl: "https://firebasefiretrack.netlify.app",
     githubUrl: "https://github.com/Thefirstxerg/React-Firebase-Project"
-  }
+  },
+  {
+    title: "Movie Review App",
+    description: " A movie review application built with Django and React, allowing users to browse, review, and rate movies.",
+    technologies: ["React", "JavaScript", "CSS", "HTML", "MongoDB", "Mongoose", "Express"],
+    imageUrl: "/Movie_Review.png",
+    projectUrl: "https://mern-movie-frontend-uhxq.onrender.com",
+    githubUrl: "https://github.com/Thefirstxerg/MERN/tree/main/Code"}
 ];
 
 function PortfolioSection() {
