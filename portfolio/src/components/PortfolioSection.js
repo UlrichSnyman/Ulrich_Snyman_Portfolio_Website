@@ -13,7 +13,7 @@ const projects = [
   {
     title: "Fluid Sim Project",
     description: "A real-time fluid simulation built with JavaScript and WebGL. Explore interactive fluid dynamics in your browser!",
-    technologies: ["JavaScript", "WebGL", "HTML", "CSS", "HTML"],
+    technologies: ["JavaScript", "WebGL", "HTML", "CSS"],
     imageUrl: require('../assets/images/Fluid_Sim.png'),
     projectUrl: "https://thefirstxerg.github.io/Ulrich_Snyman_Portfolio_Website/Projects/Fluid%20Sim/index.html",
     githubUrl: "https://github.com/Thefirstxerg/Ulrich_Snyman_Portfolio_Website/tree/main/Projects/Fluid%20Sim"
@@ -37,7 +37,7 @@ const projects = [
   {
     title: "Movie Review App",
     description: " A movie review application built with Django and React, allowing users to browse, review, and rate movies.",
-    technologies: ["React", "JavaScript", "CSS", "HTML", "MongoDB", "Mongoose", "Express", "Axios"],
+    technologies: ["React", "JavaScript", "CSS", "HTML", "MongoDB", "Mongoose", "Express", "Axios", "CSS"],
     imageUrl: require('../assets/images/Movie_Review.png'),
     projectUrl: "https://mern-movie-frontend-uhxq.onrender.com",
     githubUrl: "https://github.com/Thefirstxerg/MERN/tree/main/Code"
@@ -45,7 +45,7 @@ const projects = [
   {
     title: "GraphQL React App",
     description: "A React application utilizing GraphQL for data fetching, showcasing modern web development practices.",
-    technologies: ["React", "GraphQL", "JavaScript", "Express", "HTML", "MongoDB", "Mongoose", "BCryptJS"],
+    technologies: ["React", "GraphQL", "JavaScript", "Express", "HTML", "MongoDB", "Mongoose", "Axios"],
     imageUrl: require('../assets/images/GraphQL.png'),
     projectUrl: "https://ulsngraphqldemo.netlify.app/",
     githubUrl: "https://github.com/Thefirstxerg/GraphQL_React"
