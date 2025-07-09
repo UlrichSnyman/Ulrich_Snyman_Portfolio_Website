@@ -20,8 +20,6 @@ const techData = [
   { name: 'HTML5', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
   { name: 'WebGL', img: 'https://images.seeklogo.com/logo-png/31/1/webgl-logo-png_seeklogo-316725.png' },
   { name: 'GraphQL', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg' },
-  { name: 'Axios', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/axios/axios-original.svg' },
-  { name: 'BCryptJS', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bcryptjs/bcryptjs-original.svg' },
 ];
 
 function TechnologiesBanner() {
