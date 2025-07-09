@@ -37,7 +37,7 @@ const projects = [
   {
     title: "Movie Review App",
     description: " A movie review application built with Django and React, allowing users to browse, review, and rate movies.",
-    technologies: ["React", "JavaScript", "CSS", "HTML", "MongoDB", "Mongoose", "Express", "Axios", "CSS"],
+    technologies: ["React", "JavaScript", "CSS", "HTML", "MongoDB", "Mongoose", "Express", "Axios"],
     imageUrl: require('../assets/images/Movie_Review.png'),
     projectUrl: "https://mern-movie-frontend-uhxq.onrender.com",
     githubUrl: "https://github.com/Thefirstxerg/MERN/tree/main/Code"
@@ -45,7 +45,7 @@ const projects = [
   {
     title: "GraphQL React App",
     description: "A React application utilizing GraphQL for data fetching, showcasing modern web development practices.",
-    technologies: ["React", "GraphQL", "JavaScript", "Express", "HTML", "MongoDB", "Mongoose", "Axios"],
+    technologies: ["React", "GraphQL", "JavaScript", "Express", "HTML", "MongoDB", "Mongoose", "Axios", "CSS"],
     imageUrl: require('../assets/images/GraphQL.png'),
     projectUrl: "https://ulsngraphqldemo.netlify.app/",
     githubUrl: "https://github.com/Thefirstxerg/GraphQL_React"
