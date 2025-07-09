@@ -44,7 +44,7 @@ const projects = [
   {
     title: "GraphQL React App (Work in Progress)",
     description: "A React application utilizing GraphQL for data fetching, showcasing modern web development practices.",
-    technologies: ["React", "GraphQL", "JavaScript", "Express", "HTML", "MongoDB", "Mongoose"],
+    technologies: ["React", "GraphQL", "JavaScript", "Express", "HTML", "MongoDB", "Mongoose", "BCryptJS"],
     imageUrl: require('../assets/images/GraphQL.png'),
     projectUrl: "https://graphql-react-app.netlify.app",
     githubUrl: ""}
