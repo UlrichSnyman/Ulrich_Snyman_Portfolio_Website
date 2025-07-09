@@ -40,14 +40,16 @@ const projects = [
     technologies: ["React", "JavaScript", "CSS", "HTML", "MongoDB", "Mongoose", "Express", "Axios"],
     imageUrl: require('../assets/images/Movie_Review.png'),
     projectUrl: "https://mern-movie-frontend-uhxq.onrender.com",
-    githubUrl: "https://github.com/Thefirstxerg/MERN/tree/main/Code"},
+    githubUrl: "https://github.com/Thefirstxerg/MERN/tree/main/Code"
+  },
   {
-    title: "GraphQL React App (Work in Progress)",
+    title: "GraphQL React App",
     description: "A React application utilizing GraphQL for data fetching, showcasing modern web development practices.",
     technologies: ["React", "GraphQL", "JavaScript", "Express", "HTML", "MongoDB", "Mongoose", "BCryptJS"],
     imageUrl: require('../assets/images/GraphQL.png'),
-    projectUrl: "https://graphql-react-app.netlify.app",
-    githubUrl: ""}
+    projectUrl: "https://ulsngraphqldemo.netlify.app/",
+    githubUrl: "https://github.com/Thefirstxerg/GraphQL_React"
+  }
 ];
 
 function PortfolioSection() {
