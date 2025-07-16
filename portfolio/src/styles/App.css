@@ -508,29 +508,50 @@ section[id] {
 }
 
 .project-card {
-  flex: 0 0 350px;
-  min-width: 350px;
-  max-width: 350px;
+  flex: 0 0 380px;
+  min-width: 380px;
+  max-width: 380px;
   display: flex;
   flex-direction: column;
-  height: 720px;
-  /* Fixed height for all cards */
+  height: auto;
+  min-height: 650px;
+  /* Minimum height for all cards */
   box-sizing: border-box;
 }
 
 .project-image {
   flex-shrink: 0;
+  height: 200px;
 }
 
-.project-content {
+.project-main-content {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+}
+
+.project-bottom {
+  flex-shrink: 0;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.project-content {
+  padding: 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .project-links {
-  margin-top: auto;
+  margin-top: 0;
+  padding-top: 0;
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
 }
 
 .project-card {
@@ -554,7 +575,8 @@ section[id] {
 .project-image {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16/9;
+  height: 190px;
+  flex-shrink: 0;
 }
 
 .project-image img {
@@ -571,6 +593,11 @@ section[id] {
 .project-content {
   padding: 1.5rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .project-content h4 {
@@ -584,14 +611,18 @@ section[id] {
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 1.2rem;
   line-height: 1.6;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  flex: 1 1 auto;
 }
 
 .project-technologies {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  padding-top: 0;
+  flex-shrink: 0;
 }
 
 .tech-tag {
@@ -609,10 +640,6 @@ section[id] {
   transform: translateY(-2px);
 }
 
-.project-links {
-  display: flex;
-  gap: 1rem;
-}
 
 .project-link {
   padding: 0.8rem 1.5rem;
