@@ -20,6 +20,7 @@ const techData = [
   { name: 'HTML5', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
   { name: 'WebGL', img: 'https://images.seeklogo.com/logo-png/31/1/webgl-logo-png_seeklogo-316725.png' },
   { name: 'GraphQL', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg' },
+  { name: 'Websockets', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/websockets/websockets-original.svg' },
 ];
 
 function TechnologiesBanner() {

@@ -49,6 +49,14 @@ const projects = [
     imageUrl: require('../assets/images/GraphQL.png'),
     projectUrl: "https://ulsngraphqldemo.netlify.app/",
     githubUrl: "https://github.com/Thefirstxerg/GraphQL_React"
+  },
+  {
+    title: "MERN Collaborative Canvas",
+    description: "A collaborative drawing application built with the MERN stack, allowing real-time drawing and sharing. The entire Canvas is stored within MongoDB.",
+    technologies: ["React", "Express", "MongoDB", "Mongoose", "JavaScript", "HTML", "CSS", "Websockets"],
+    imageUrl: require('../assets/images/MERN_Canvas.png'),
+    projectUrl: "https://ulsncoca.netlify.app",
+    githubUrl: "https://github.com/Thefirstxerg/MERN-Collaborative-Canvas"
   }
 ];
 
