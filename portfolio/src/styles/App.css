@@ -1095,3 +1095,13 @@ section[id] {
     pointer-events: auto !important;
   }
 }
+
+.work-status {
+  margin-top: 15px;
+}
+
+.work-status p {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
