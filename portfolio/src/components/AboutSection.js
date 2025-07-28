@@ -7,12 +7,13 @@ class AboutSection extends Component {
         <div className="content-wrapper">
           <h3>About Me</h3>
           <p>
-            Software Engineering student at Code College with hands-on experience in full-stack development. 
-            Proficient in React, Node.js, Python, and Django with a track record of delivering web applications 
+            Full-stack student at Code College with hands-on experience in software development. 
+            Proficient in React, Node.js, Python, and MongoDB with a track record of delivering web applications 
             from concept to deployment.
           </p>
           <p>
-            Seeking opportunities to contribute to innovative projects and grow within a dynamic development team.
+            Always seeking to expand my skill set and stay updated with the latest technologies. 
+            So, please, challenge me with your projects.
           </p>
         </div>
       </section>
