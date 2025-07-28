@@ -17,7 +17,7 @@ const techCategories = {
   ],
   databases: [
     { name: 'MongoDB', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg', description: 'NoSQL document database' },
-    { name: 'MySQL', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', description: 'Relational database system' },
+    { name: 'PostgreSQL', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg', description: 'Advanced relational database system' },
     { name: 'Firebase', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg', description: 'Google cloud platform' },
     { name: 'Mongoose', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongoose/mongoose-original.svg', description: 'MongoDB object modeling' },
     { name: 'Microsoft Access', img: require('../assets/icons/MicrosoftAccess.png'), description: 'Desktop database application' },
@@ -26,7 +26,7 @@ const techCategories = {
     { name: 'GitHub', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', description: 'Version control platform' },
     { name: 'WebGL', img: 'https://images.seeklogo.com/logo-png/31/1/webgl-logo-png_seeklogo-316725.png', description: 'Web graphics library' },
     { name: 'GraphQL', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg', description: 'API query language' },
-    { name: 'Websockets', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/websockets/websockets-original.svg', description: 'Real-time communication protocol' },
+    { name: 'Websockets', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg', description: 'Real-time communication protocol' },
     { name: 'Delphi', img: require('../assets/icons/delphi.png'), description: 'Object Pascal development environment' },
   ],
 };

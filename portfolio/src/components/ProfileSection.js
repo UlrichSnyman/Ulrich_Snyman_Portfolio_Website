@@ -6,12 +6,12 @@ function ProfileSection() {
       <div className="profile-content">
         <div className="profile-info">
           <h1>Ulrich Snyman</h1>
-          <p className="title">Full-Stack Developer & Software Engineer</p>
+          <p className="title"><span className="highlight-text">Full-Stack Developer</span> & <span className="highlight-text">Software Engineer</span></p>
           <p className="location"><a href="https://www.google.com/maps/place/Pretoria" target="_blank" rel="noopener noreferrer">Pretoria, Gauteng</a></p>
-          <p className="description">Skilled in React, Node.js, and Python. Building web solutions with clean interfaces and robust backend systems.</p>
+          <p className="description">Skilled in <span className="highlight-text">React</span>, <span className="highlight-text">Node.js</span>, and <span className="highlight-text">Python</span>. Building <span className="highlight-text">web solutions</span> with clean interfaces and robust backend systems.</p>
           <div className="work-status">
-            <p>Current Occupation: Code College, Intern</p>
-            <p>Looking for work: No</p>
+            <p>Current Occupation: <span className="highlight-text">Code College, Intern</span></p>
+            <p>Looking for work: <span className="status-no">No</span></p>
           </div>
         </div>
         <div className="profile-image">

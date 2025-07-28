@@ -6,7 +6,6 @@ import TechnologiesBanner from './TechnologiesBanner';
 import CertificatesSection from './CertificatesSection';
 import FloatingNav from './FloatingNav';
 import AboutSection from './AboutSection';
-import ContactSection from './ContactSection';
 
 function MainPage() {
   return (
@@ -18,7 +17,6 @@ function MainPage() {
       <PortfolioSection />
       <TechnologiesBanner />
       <CertificatesSection />
-      <ContactSection />
     </>
   );
 }
