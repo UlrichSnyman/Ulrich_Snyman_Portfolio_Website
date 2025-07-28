@@ -5,15 +5,14 @@ class AboutSection extends Component {
     return (
       <section id="about" className="portfolio-section styled-section animate-fade-in">
         <div className="content-wrapper">
-          <h3>About Me</h3>          <p>
-            Full-Stack Developer and Software Engineering student that likes building innovative web solutions. 
-            Skilled in React, Node.js, and Python, I create responsive applications that combine clean interfaces with 
-            robust backend systems.
+          <h3>About Me</h3>
+          <p>
+            Software Engineering student at Code College with hands-on experience in full-stack development. 
+            Proficient in React, Node.js, Python, and Django with a track record of delivering web applications 
+            from concept to deployment.
           </p>
           <p>
-            Currently at Code College, working on projects ranging from web apps to database systems. 
-            Always excited to tackle new challenges and turn ideas into reality and learn from the experience. 
-            So please, Challenge Me.
+            Seeking opportunities to contribute to innovative projects and grow within a dynamic development team.
           </p>
         </div>
       </section>
