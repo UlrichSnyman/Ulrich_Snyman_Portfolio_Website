@@ -1096,12 +1096,242 @@ section[id] {
   }
 }
 
+/* Highlighting Styles */
+.highlight-text {
+  color: #4a90e2;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(74, 144, 226, 0.3);
+  transition: all 0.3s ease;
+}
+
+.status-no {
+  color: #e53935;
+  font-weight: 600;
+}
+
+/* Contact Section Styles */
+.contact-info {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(15, 52, 96, 0.2);
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.contact-info:hover {
+  border-color: rgba(74, 144, 226, 0.4);
+  background: rgba(15, 52, 96, 0.3);
+}
+
+.contact-info h4 {
+  color: #7bb3f0;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-shadow: 0 0 15px rgba(123, 179, 240, 0.3);
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.contact-details p {
+  margin: 0;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-label {
+  color: #7bb3f0;
+  font-weight: 600;
+  min-width: 80px;
+}
+
+.contact-link {
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #7bb3f0;
+  text-shadow: 0 0 8px rgba(123, 179, 240, 0.4);
+}
+
+/* Project Search and Filter Styles */
+.project-controls {
+  width: 100%;
+  margin: 2rem 0;
+  padding: 2rem;
+  background: rgba(15, 52, 96, 0.2);
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.search-container {
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  background: rgba(24, 24, 28, 0.8);
+  border: 2px solid rgba(74, 144, 226, 0.3);
+  border-radius: 25px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.filter-label {
+  color: #7bb3f0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(123, 179, 240, 0.3);
+}
+
+.technology-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.filter-btn {
+  padding: 0.8rem 1.5rem;
+  background: rgba(123, 179, 240, 0.15);
+  color: #7bb3f0;
+  border: 1px solid rgba(123, 179, 240, 0.3);
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(123, 179, 240, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(123, 179, 240, 0.2);
+}
+
+.filter-btn.active {
+  background: rgba(74, 144, 226, 0.8);
+  color: white;
+  border-color: #4a90e2;
+  box-shadow: 0 0 20px rgba(74, 144, 226, 0.4);
+}
+
+.clear-filters-btn {
+  padding: 0.8rem 1.5rem;
+  background: rgba(229, 57, 53, 0.2);
+  color: #e53935;
+  border: 1px solid rgba(229, 57, 53, 0.3);
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.clear-filters-btn:hover {
+  background: rgba(229, 57, 53, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(229, 57, 53, 0.2);
+}
+
+.results-info {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.no-results p {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+/* Work Status Enhancement */
 .work-status {
-  margin-top: 15px;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(15, 52, 96, 0.2);
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
 }
 
 .work-status p {
-  color: #a0a0a0;
-  font-size: 0.9rem;
-  margin: 5px 0;
+  margin: 0.5rem 0;
+  font-size: 1.4rem;
+}
+
+/* Responsive Adjustments for New Features */
+@media (max-width: 768px) {
+  .project-controls {
+    padding: 1.5rem;
+  }
+  
+  .technology-filters {
+    justify-content: center;
+  }
+  
+  .filter-btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .search-input {
+    font-size: 1.1rem;
+    padding: 0.8rem 1.2rem;
+  }
+  
+  .contact-details {
+    gap: 0.8rem;
+  }
+  
+  .contact-details p {
+    font-size: 1.2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .contact-label {
+    min-width: auto;
+  }
+
 }

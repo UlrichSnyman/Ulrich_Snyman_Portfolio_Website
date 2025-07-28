@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import ProjectCard from './ProjectCard';
 
 const projects = [
@@ -61,15 +61,99 @@ const projects = [
 ];
 
 function PortfolioSection() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedTechnology, setSelectedTechnology] = useState('');
+
+  // Get all unique technologies from projects
+  const allTechnologies = useMemo(() => {
+    const techSet = new Set();
+    projects.forEach(project => {
+      project.technologies.forEach(tech => techSet.add(tech));
+    });
+    return Array.from(techSet).sort();
+  }, []);
+
+  // Filter projects based on search term and selected technology
+  const filteredProjects = useMemo(() => {
+    return projects.filter(project => {
+      const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           project.description.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesTechnology = selectedTechnology === '' || 
+                               project.technologies.includes(selectedTechnology);
+      return matchesSearch && matchesTechnology;
+    });
+  }, [searchTerm, selectedTechnology]);
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleTechnologyFilter = (technology) => {
+    setSelectedTechnology(selectedTechnology === technology ? '' : technology);
+  };
+
+  const clearFilters = () => {
+    setSearchTerm('');
+    setSelectedTechnology('');
+  };
+
   return (
     <section id="projects" className="portfolio-section styled-section animate-fade-in">
       <div className="content-wrapper">
         <h2>Projects</h2>
+        
+        {/* Search and Filter Controls */}
+        <div className="project-controls">
+          <div className="search-container">
+            <input
+              type="text"
+              placeholder="Search projects..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+              className="search-input"
+            />
+          </div>
+          
+          <div className="filter-container">
+            <div className="filter-label">Filter by technology:</div>
+            <div className="technology-filters">
+              {allTechnologies.map(tech => (
+                <button
+                  key={tech}
+                  onClick={() => handleTechnologyFilter(tech)}
+                  className={`filter-btn ${selectedTechnology === tech ? 'active' : ''}`}
+                >
+                  {tech}
+                </button>
+              ))}
+            </div>
+            {(searchTerm || selectedTechnology) && (
+              <button onClick={clearFilters} className="clear-filters-btn">
+                Clear Filters
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Results count */}
+        <div className="results-info">
+          Showing {filteredProjects.length} of {projects.length} projects
+        </div>
+        
         <div className="projects-scroll-container">
           <div className="projects-grid">
-            {projects.map((project, index) => (
-              <ProjectCard key={index} {...project} />
-            ))}
+            {filteredProjects.length > 0 ? (
+              filteredProjects.map((project, index) => (
+                <ProjectCard key={index} {...project} />
+              ))
+            ) : (
+              <div className="no-results">
+                <p>No projects found matching your criteria.</p>
+                <button onClick={clearFilters} className="clear-filters-btn">
+                  Show All Projects
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
