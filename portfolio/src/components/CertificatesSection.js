@@ -22,7 +22,13 @@ const certificates = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
   },
   {
+    title: "MERN Stack",
+    file: require('../assets/certs/Ulrich Snyman MERN Stack.pdf'),
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+  },
+  {
     title: "React",
+    file: require('../assets/certs/Ulrich Snyman React.pdf'),
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
   }
 ];
