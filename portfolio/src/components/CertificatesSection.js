@@ -30,6 +30,11 @@ const certificates = [
     title: "React",
     file: require('../assets/certs/Ulrich Snyman React.pdf'),
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+  },
+  {
+    title: "SQL",
+    file: require('../assets/certs/Ulrich Snyman SQL.pdf'),
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
   }
 ];
 
