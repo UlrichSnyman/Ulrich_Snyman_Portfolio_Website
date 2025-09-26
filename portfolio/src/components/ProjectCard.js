@@ -4,7 +4,20 @@ const ProjectCard = ({ title, description, technologies, imageUrl, projectUrl, g
   return (
     <div className="project-card animate-pop">
       <div className="project-image">
-        <img src={imageUrl} alt={title} />
+        {imageUrl ? (
+          <img src={imageUrl} alt={title} />
+        ) : (
+          <div className="placeholder-image">
+            <div className="placeholder-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+            </div>
+            <span>Screenshot Coming Soon</span>
+          </div>
+        )}
       </div>
       <div className="project-content">
         <div className="project-main-content">

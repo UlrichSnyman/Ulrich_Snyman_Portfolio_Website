@@ -57,6 +57,14 @@ const projects = [
     imageUrl: require('../assets/images/MERN_Canvas.png'),
     projectUrl: "https://ulsncoca.netlify.app",
     githubUrl: "https://github.com/Thefirstxerg/MERN-Collaborative-Canvas"
+  },
+  {
+    title: "Java Battleship Game",
+    description: "A beginner-friendly console-based Battleship game built with Java. Features ship placement, turn-based gameplay, and hit detection in a classic grid-based battle format.",
+    technologies: ["Java"],
+    imageUrl: null, // Placeholder - you can add an image later
+    projectUrl: null,
+    githubUrl: "https://github.com/UlrichSnyman/Java/tree/main/Code/Java%20Beginner%20chps/src/chp5challenge"
   }
 ];
 
