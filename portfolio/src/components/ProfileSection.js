@@ -15,7 +15,7 @@ function ProfileSection() {
           </div>
         </div>
         <div className="profile-image">
-          <img src={require('../assets/images/Pfp.jpg')} alt="Profile" />
+          <img src={require('../assets/images/Pfp.jpg')} alt="Ulrich Snyman - Full Stack Developer portrait photo" />
         </div>
       </div>
     </div>

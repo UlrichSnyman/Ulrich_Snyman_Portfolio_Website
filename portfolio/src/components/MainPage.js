@@ -11,12 +11,15 @@ function MainPage() {
   return (
     <>
       <FloatingNav />
-      <ProfileSection />
-      <PortfolioNav />
-      <AboutSection />
-      <PortfolioSection />
-      <TechnologiesBanner />
-      <CertificatesSection />
+      <main id="main-content"> {/* Added id for skip link
+                                   Used for screen readers and seo*/}
+        <ProfileSection />
+        <PortfolioNav />
+        <AboutSection />
+        <PortfolioSection />
+        <TechnologiesBanner />
+        <CertificatesSection />
+      </main>
     </>
   );
 }

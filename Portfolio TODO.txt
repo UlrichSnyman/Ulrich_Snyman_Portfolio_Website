@@ -1,10 +1,11 @@
 [ ] Improve landing experience (more info at start, better design)
-[ ] Add fallback or minimal content for users without JavaScript
+[x] Add fallback or minimal content for users without JavaScript
 [ ] Optimize performance / loading (code splitting, reduce bundle size, may want to switch hosting)
 [ ] Run Lighthouse / Web Vitals audit and fix major issues
 [ ] Optionally: Use semantic HTML & proper ARIA / accessibility attributes 
-[ ] Add alt text for all images
-[ ] Ensure keyboard navigation works everywhere
+[x] Add alt text for all images
+[x] Add CSS for users who prefer high contrast
+[x] Ensure keyboard navigation works everywhere
 [ ] Check and fix contrast ratios for readability (mobile)
 [x] Showcase multiple projects (frontend, backend, full-stack)
 [ ] For each project, include:
@@ -26,3 +27,4 @@
 [x] Add a “Tech Stack / Architecture” section or notes
 [ ] Optionally: a blog or write-ups of what you’ve learned
 [x] Link to GitHub, keep repos clean & documented
+[ ] Remove the scroll bar of the main page

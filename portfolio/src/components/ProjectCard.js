@@ -5,7 +5,7 @@ const ProjectCard = ({ title, description, technologies, imageUrl, projectUrl, g
     <div className="project-card animate-pop">
       <div className="project-image">
         {imageUrl ? (
-          <img src={imageUrl} alt={title} />
+          <img src={imageUrl} alt={`Screenshot of ${title} project`} />
         ) : (
           <div className="placeholder-image">
             <div className="placeholder-icon">
@@ -32,12 +32,26 @@ const ProjectCard = ({ title, description, technologies, imageUrl, projectUrl, g
           </div>
           <div className="project-links">
             {projectUrl && (
-              <a href={projectUrl} target="_blank" rel="noopener noreferrer" className="project-link live">
+              <a 
+                href={projectUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="project-link live"
+                tabIndex="0"
+                aria-label={`View ${title} project live demo`}
+              >
                 View Project
               </a>
             )}
             {githubUrl && (
-              <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="project-link github">
+              <a 
+                href={githubUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="project-link github"
+                tabIndex="0"
+                aria-label={`View ${title} source code on GitHub`}
+              >
                 GitHub
               </a>
             )}

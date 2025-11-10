@@ -20,9 +20,9 @@ class AboutSection extends Component {
             <h4>Let's Connect</h4>
             <p>You can reach me at:</p>
             <div className="contact-details">
-              <p><span className="contact-label">Email:</span> <a href="mailto:ulrichsnymancode@gmail.com" className="contact-link">ulrichsnymancode@gmail.com</a></p>
-              <p><span className="contact-label">LinkedIn:</span> <a href="https://www.linkedin.com/in/ulrich-snyman-a5a980368/" target="_blank" rel="noopener noreferrer" className="contact-link">Ulrich Snyman</a></p>
-              <p><span className="contact-label">GitHub:</span> <a href="https://github.com/UlrichSnyman" target="_blank" rel="noopener noreferrer" className="contact-link">UlrichSnyman</a></p>
+              <p><span className="contact-label">Email:</span> <a href="mailto:ulrichsnymancode@gmail.com" className="contact-link" tabIndex="0" aria-label="Send email to Ulrich Snyman">ulrichsnymancode@gmail.com</a></p>
+              <p><span className="contact-label">LinkedIn:</span> <a href="https://www.linkedin.com/in/ulrich-snyman-a5a980368/" target="_blank" rel="noopener noreferrer" className="contact-link" tabIndex="0" aria-label="Visit Ulrich Snyman's LinkedIn profile">Ulrich Snyman</a></p>
+              <p><span className="contact-label">GitHub:</span> <a href="https://github.com/UlrichSnyman" target="_blank" rel="noopener noreferrer" className="contact-link" tabIndex="0" aria-label="Visit Ulrich Snyman's GitHub profile">UlrichSnyman</a></p>
             </div>
           </div>
         </div>

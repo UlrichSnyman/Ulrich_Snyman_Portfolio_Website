@@ -15,14 +15,21 @@ const FloatingNav = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleKeyDown = (e, targetId) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <nav className={`floating-nav ${visible ? 'visible' : ''}`}>
+    <nav className={`floating-nav ${visible ? 'visible' : ''}`} role="navigation" aria-label="Main navigation">
       <div className="nav-content">
         <div className="nav-brand">Ulrich Snyman</div>
         <div className="nav-links">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
+          <a href="#about" tabIndex="0" onKeyDown={(e) => handleKeyDown(e, 'about')} aria-label="Navigate to About section">About</a>
+          <a href="#projects" tabIndex="0" onKeyDown={(e) => handleKeyDown(e, 'projects')} aria-label="Navigate to Projects section">Projects</a>
+          <a href="#skills" tabIndex="0" onKeyDown={(e) => handleKeyDown(e, 'skills')} aria-label="Navigate to Skills section">Skills</a>
         </div>
       </div>
     </nav>

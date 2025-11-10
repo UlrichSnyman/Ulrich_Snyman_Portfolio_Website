@@ -46,7 +46,7 @@ function TechnologiesBanner() {
               <div key={tech.name} className="technology-card animate-pop">
                 <img
                   src={tech.img}
-                  alt={tech.name}
+                  alt={`${tech.name} logo - ${tech.description}`}
                   title={tech.name}
                   className="technology-icon"
                 />

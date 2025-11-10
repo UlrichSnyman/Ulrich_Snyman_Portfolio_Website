@@ -57,6 +57,8 @@ function CertificatesSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="certificate-card"
+                tabIndex="0"
+                aria-label={`View ${cert.title} certificate PDF`}
               >
                 <img src={cert.icon} alt={`${cert.title} icon`} className="certificate-icon" />
                 <h3>{cert.title}</h3>
