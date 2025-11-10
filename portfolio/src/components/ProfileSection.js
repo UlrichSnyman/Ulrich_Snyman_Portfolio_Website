@@ -11,7 +11,7 @@ function ProfileSection() {
           <p className="description">Skilled in <span className="highlight-text">React</span>, <span className="highlight-text">Node.js</span>, and <span className="highlight-text">Python</span>. Building <span className="highlight-text">web solutions</span> with clean interfaces and robust backend systems.</p>
           <div className="work-status">
             <p>Current Occupation: <span className="highlight-text">Code College, Intern</span></p>
-            <p>Looking for work: <span className="status-no">No</span></p>
+            <p>Looking for work: <span className="status-no">Yes</span></p>
           </div>
         </div>
         <div className="profile-image">
