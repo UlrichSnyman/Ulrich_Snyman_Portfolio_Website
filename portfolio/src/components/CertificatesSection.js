@@ -38,7 +38,7 @@ const certificates = [
   },
   {
     title: "Java",
-    file: null, // Placeholder - add your Java certificate PDF here when available
+    file: require('../assets/certs/Ulrich Snyman Java Beginner.pdf'),
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
   }
 ];
