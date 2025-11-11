@@ -7,11 +7,11 @@ import reportWebVitals from './reportWebVitals';
 const rootElement = document.getElementById('root');
 const root = ReactDOM.createRoot(rootElement);
 
-if (rootElement.hasChildNodes()) {
-  root.hydrate(<App />);
-} else {
-  root.render(<App />);
-}
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
