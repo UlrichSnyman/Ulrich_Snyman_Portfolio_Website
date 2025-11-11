@@ -28,7 +28,7 @@
 [ ] Optionally: a blog or write-ups of what you’ve learned
 [x] Link to GitHub, keep repos clean & documented
 [x] Remove the scroll bar of the main page
-[ ] Update the about section to include newer technologies and goals
+[x] Update the about section to include newer technologies and goals
 [x] Issue on mobile where the email text goes off screen
 [x] Mobile navbar goes off screen, on mobile just remove my name
 [ ]
