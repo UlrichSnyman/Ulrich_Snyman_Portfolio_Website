@@ -41,6 +41,17 @@ const certificates = [
     file: require('../assets/certs/Ulrich Snyman Java Beginner.pdf'),
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
   }
+  ,
+  {
+    title: "Java Advanced",
+    file: require('../assets/certs/Ulrich_Snyman_Java_Advanced.pdf'),
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+  },
+  {
+    title: "Spring",
+    file: require('../assets/certs/Ulrich_Snyman_Spring.pdf'),
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+  }
 ];
 
 function CertificatesSection() {

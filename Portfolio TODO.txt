@@ -31,7 +31,7 @@
 [x] Update the about section to include newer technologies and goals
 [x] Issue on mobile where the email text goes off screen
 [x] Mobile navbar goes off screen, on mobile just remove my name
-[ ]
-[ ]
-[ ]
+[ ] Create a demo for one of the projects (Canvas)
+[ ] On Projects, make it so that the tags and description are expandable 
+[ ] Projects, make it so that they are not restricted to a container, so if you zoom out you can see all
 [ ]
