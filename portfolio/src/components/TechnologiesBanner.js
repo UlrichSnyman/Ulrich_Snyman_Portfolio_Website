@@ -8,6 +8,7 @@ const techCategories = {
     { name: 'HTML5', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', description: 'Web structure markup language' },
     { name: 'CSS3', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', description: 'Web styling language' },
     { name: 'Sass/SCSS', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg', description: 'CSS preprocessor' },
+    { name: 'Delphi', img: require('../assets/icons/delphi.png'), description: 'Object Pascal programming language' },
   ],
   frameworks: [
     { name: 'React', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', description: 'Frontend JavaScript library' },
@@ -26,10 +27,10 @@ const techCategories = {
   ],
   tools: [
     { name: 'Git', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', description: 'Version control platform' },
+    { name: 'Docker', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg', description: 'Containerization platform' },
     { name: 'WebGL', img: 'https://images.seeklogo.com/logo-png/31/1/webgl-logo-png_seeklogo-316725.png', description: 'Web graphics library' },
     { name: 'GraphQL', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg', description: 'API query language' },
     { name: 'Websockets', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg', description: 'Real-time communication protocol' },
-    { name: 'Delphi', img: require('../assets/icons/delphi.png'), description: 'Object Pascal development environment' },
   ],
 };
 

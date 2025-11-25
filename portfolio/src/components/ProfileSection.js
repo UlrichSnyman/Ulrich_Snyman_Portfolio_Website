@@ -12,6 +12,17 @@ function ProfileSection() {
           <div className="work-status">
             <p>Current Occupation: <span className="highlight-text">Code College, Intern</span></p>
             <p>Looking for work: <span className="status-no">Yes</span></p>
+            <p><span className="contact-label">CV:</span> 
+              <a 
+                href={require('../assets/certs/Ulrich_Snyman_CV_non_ATS.pdf')} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="cv-button"
+                aria-label="Download my CV"
+              >
+                Download CV
+              </a>
+            </p>
           </div>
         </div>
         <div className="profile-image">
