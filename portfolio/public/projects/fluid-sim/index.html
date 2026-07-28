@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Fluid Sim</title>
+
+  <script>
+    window.ga = window.ga || function() {
+      (ga.q = ga.q || []).push(arguments)
+    };
+    ga.l = +new Date;
+    ga('create', 'UA-105392568-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- Google Fonts for modern typography -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* All styles moved to styles.css for maintainability */
+  </style>
+
+</head>
+
+<body>
+  <div class="main-title">
+    <h1>Fluid Simulation</h1>
+    <h6>You can click the sim to change the colour</h6>
+  </div>
+  <div id="page" class="site layout-row">
+    <div class="fluid-sim-container">
+      <canvas class="banner_canvas" id="canvas_banner"></canvas>
+    </div>
+    <form id="fluid-controls" class="fluid-controls">
+      <div class="slider-group">
+        <label>Sim Resolution: <span id="simResValue">128</span></label>
+        <input type="range" min="32" max="512" step="32" value="128" id="simRes">
+      </div>
+      <div class="slider-group">
+        <label>Dye Resolution: <span id="dyeResValue">512</span></label>
+        <input type="range" min="64" max="1024" step="64" value="512" id="dyeRes">
+      </div>
+      <div class="slider-group">
+        <label>Density Dissipation: <span id="densityDissipationValue">0.97</span></label>
+        <input type="range" min="0.9" max="1" step="0.01" value="0.97" id="densityDissipation">
+      </div>
+      <div class="slider-group">
+        <label>Velocity Dissipation: <span id="velocityDissipationValue">0.98</span></label>
+        <input type="range" min="0.9" max="1" step="0.01" value="0.98" id="velocityDissipation">
+      </div>
+      <div class="slider-group">
+        <label>Pressure Dissipation: <span id="pressureDissipationValue">0.8</span></label>
+        <input type="range" min="0.5" max="1" step="0.01" value="0.8" id="pressureDissipation">
+      </div>
+      <div class="slider-group">
+        <label>Pressure Iterations: <span id="pressureIterationsValue">20</span></label>
+        <input type="range" min="1" max="50" step="1" value="20" id="pressureIterations">
+      </div>
+      <div class="slider-group">
+        <label>Curl: <span id="curlValue">30</span></label>
+        <input type="range" min="0" max="100" step="1" value="30" id="curl">
+      </div>
+      <div class="slider-group">
+        <label>Splat Radius: <span id="splatRadiusValue">0.5</span></label>
+        <input type="range" min="0.01" max="1" step="0.01" value="0.5" id="splatRadius">
+      </div>
+      <div class="switch-group">
+        <label>Shading <input type="checkbox" id="shading"></label>
+      </div>
+      <div class="switch-group">
+        <label>Colorful <input type="checkbox" id="colorful"></label>
+      </div>
+      <div class="switch-group">
+        <label>Paused <input type="checkbox" id="paused"></label>
+      </div>
+      <div class="switch-group">
+        <label>Transparent <input type="checkbox" id="transparent"></label>
+      </div>
+      <div class="switch-group">
+        <label>Bloom <input type="checkbox" id="bloom" checked></label>
+      </div>
+      <div class="slider-group">
+        <label>Bloom Iterations: <span id="bloomIterationsValue">8</span></label>
+        <input type="range" min="1" max="16" step="1" value="8" id="bloomIterations">
+      </div>
+      <div class="slider-group">
+        <label>Bloom Resolution: <span id="bloomResolutionValue">256</span></label>
+        <input type="range" min="64" max="512" step="32" value="256" id="bloomResolution">
+      </div>
+      <div class="slider-group">
+        <label>Bloom Intensity: <span id="bloomIntensityValue">0.8</span></label>
+        <input type="range" min="0" max="2" step="0.01" value="0.8" id="bloomIntensity">
+      </div>
+      <div class="slider-group">
+        <label>Bloom Threshold: <span id="bloomThresholdValue">0.6</span></label>
+        <input type="range" min="0" max="1" step="0.01" value="0.6" id="bloomThreshold">
+      </div>
+      <div class="slider-group">
+        <label>Bloom Soft Knee: <span id="bloomSoftKneeValue">0.7</span></label>
+        <input type="range" min="0" max="1" step="0.01" value="0.7" id="bloomSoftKnee">
+      </div>
+      <fieldset class="color-group">
+        <legend>Background Color</legend>
+        <label>R <input type="range" min="0" max="255" value="2" id="backColorR"></label>
+        <label>G <input type="range" min="0" max="255" value="3" id="backColorG"></label>
+        <label>B <input type="range" min="0" max="255" value="15" id="backColorB"></label>
+      </fieldset>
+    </form>
+  </div>
+  <div class="footer">
+    &copy; 2025 Ulrich Snyman
+  </div>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
