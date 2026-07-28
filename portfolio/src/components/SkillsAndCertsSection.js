@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { professionalSkills } from '../data/portfolioData';
 
 const allCertificatesFile = require('../assets/certs/Ulrich_Snyman_All_Certificates.pdf');
@@ -53,11 +53,10 @@ const qualifications = [
 ];
 
 /**
- * Builds the ordered list of orbit blocks:
- * 4 tech categories + 3 professional skill groups + 1 certificates block = 8 total
- * Evenly spaced at 45° intervals.
+ * Builds the ordered list of skill/tech/cert blocks shown in the carousel:
+ * 4 tech categories + 3 professional skill groups + 1 certificates block = 8 total.
  */
-function buildOrbitBlocks() {
+function buildSkillBlocks() {
   const blocks = [];
 
   // Tech categories (icon grid)
@@ -88,16 +87,16 @@ function buildOrbitBlocks() {
     items: qualifications,
   });
 
-  return blocks; // 8 blocks total → 360/8 = 45° spacing
+  return blocks;
 }
 
-const orbitBlocks = buildOrbitBlocks();
-const BLOCK_COUNT = orbitBlocks.length;
+const skillBlocks = buildSkillBlocks();
+const BLOCK_COUNT = skillBlocks.length;
 
 function TechBlock({ block }) {
   if (block.type === 'tech') {
     return (
-      <div className="orbit-block-content tech-category">
+      <div className="carousel-card-content tech-category">
         <h3 className="category-title">{block.title}</h3>
         <div className="technologies-grid">
           {block.items.map(tech => (
@@ -113,7 +112,7 @@ function TechBlock({ block }) {
 
   if (block.type === 'skills') {
     return (
-      <div className="orbit-block-content tech-category">
+      <div className="carousel-card-content tech-category">
         <h3 className="category-title">{block.title}</h3>
         <ul className="skill-card-list">
           {block.items.map(skill => (
@@ -126,7 +125,7 @@ function TechBlock({ block }) {
 
   // certs
   return (
-    <div className="orbit-block-content tech-category">
+    <div className="carousel-card-content tech-category">
       <h3 className="category-title">{block.title}</h3>
       <ul className="skill-card-list">
         {block.items.map(q => (
@@ -137,81 +136,145 @@ function TechBlock({ block }) {
   );
 }
 
+/**
+ * Returns the relative offset (-N..N) of a block's index from the active
+ * index, wrapping around the ends of the list so the carousel loops.
+ */
+function relativeOffset(index, activeIndex, count) {
+  let offset = index - activeIndex;
+  if (offset > count / 2) offset -= count;
+  if (offset < -count / 2) offset += count;
+  return offset;
+}
+
 function SkillsAndCertsSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const wheelLockRef = useRef(false);
+
+  const goTo = useCallback((index) => {
+    setActiveIndex(((index % BLOCK_COUNT) + BLOCK_COUNT) % BLOCK_COUNT);
+  }, []);
+
+  const goNext = useCallback(() => goTo(activeIndex + 1), [activeIndex, goTo]);
+  const goPrev = useCallback(() => goTo(activeIndex - 1), [activeIndex, goTo]);
+
+  // Allow circulating through the collage by scrolling while the mouse is over it.
+  const handleWheel = useCallback((e) => {
+    e.preventDefault();
+    if (wheelLockRef.current) return;
+    wheelLockRef.current = true;
+    if (e.deltaY > 0 || e.deltaX > 0) {
+      goNext();
+    } else if (e.deltaY < 0 || e.deltaX < 0) {
+      goPrev();
+    }
+    setTimeout(() => {
+      wheelLockRef.current = false;
+    }, 350);
+  }, [goNext, goPrev]);
+
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      goNext();
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      goPrev();
+    }
+  }, [goNext, goPrev]);
+
+  const activeBlock = skillBlocks[activeIndex];
+
   return (
     <section id="skills" className="skills-certs-section animate-slide-in">
       <h2>Skills, Technologies &amp; Certificates</h2>
       <p className="section-subtitle">Technologies, tools, professional skills, and qualifications</p>
 
-      {/* ── Radial orbit layout (large screens) ── */}
-      <div className="orbit-outer" aria-label="Skills and technologies orbit">
-        <div className="orbit-container">
-          {/* Central action buttons – do NOT rotate */}
-          <div className="orbit-center">
-            <a
-              href={allCertificatesFile}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="view-all-certs-btn"
-              aria-label="View all certificates (PDF)"
-            >
-              View Certificates
-            </a>
-            <a
-              href={cvFile}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="view-all-certs-btn view-cv-btn"
-              aria-label="View CV (PDF)"
-            >
-              View CV
-            </a>
-          </div>
-
-          {/* Rotating ring */}
-          <div className="orbit-ring" aria-hidden="true">
-            {orbitBlocks.map((block, i) => {
-              const angle = (360 / BLOCK_COUNT) * i;
-              return (
-                <div
-                  key={block.id}
-                  className="orbit-block"
-                  style={{ '--orbit-angle': `${angle}deg` }}
-                >
-                  <TechBlock block={block} />
-                </div>
-              );
-            })}
-          </div>
-        </div>
+      {/* ── Action buttons live at the top, under the header ── */}
+      <div className="skills-cta-row">
+        <a
+          href={allCertificatesFile}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="view-all-certs-btn"
+          aria-label="View all certificates (PDF)"
+        >
+          View Certificates
+        </a>
+        <a
+          href={cvFile}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="view-all-certs-btn view-cv-btn"
+          aria-label="View CV (PDF)"
+        >
+          View CV
+        </a>
       </div>
 
-      {/* ── Accessible flat grid (aria-hidden=false; always rendered for screen readers / small screens) ── */}
-      <div className="orbit-fallback-grid" role="region" aria-label="Skills and technologies list">
-        {orbitBlocks.map(block => (
-          <TechBlock key={block.id} block={block} />
+      {/* ── Collage-style carousel: click arrows or scroll over it to circulate ── */}
+      <div
+        className="skills-carousel"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Skills, technologies and certificates"
+        tabIndex="0"
+        onWheel={handleWheel}
+        onKeyDown={handleKeyDown}
+      >
+        <button
+          type="button"
+          className="carousel-arrow carousel-arrow-prev"
+          onClick={goPrev}
+          aria-label="Show previous category"
+        >
+          &#10094;
+        </button>
+
+        <div className="carousel-stage">
+          {skillBlocks.map((block, i) => {
+            const offset = relativeOffset(i, activeIndex, BLOCK_COUNT);
+            const isActive = offset === 0;
+            const isVisible = Math.abs(offset) <= 2;
+            return (
+              <div
+                key={block.id}
+                className={`carousel-card${isActive ? ' active' : ''}`}
+                style={{ '--offset': offset, '--abs-offset': Math.abs(offset) }}
+                aria-hidden={!isActive}
+                inert={!isActive}
+              >
+                {isVisible && <TechBlock block={block} />}
+              </div>
+            );
+          })}
+        </div>
+
+        <button
+          type="button"
+          className="carousel-arrow carousel-arrow-next"
+          onClick={goNext}
+          aria-label="Show next category"
+        >
+          &#10095;
+        </button>
+      </div>
+
+      <div className="carousel-dots" role="tablist" aria-label="Select category">
+        {skillBlocks.map((block, i) => (
+          <button
+            key={block.id}
+            type="button"
+            role="tab"
+            aria-selected={i === activeIndex}
+            aria-label={`Show ${block.title}`}
+            className={`carousel-dot${i === activeIndex ? ' active' : ''}`}
+            onClick={() => goTo(i)}
+          />
         ))}
-        <div className="fallback-buttons">
-          <a
-            href={allCertificatesFile}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="view-all-certs-btn"
-            aria-label="View all certificates (PDF)"
-          >
-            View Certificates
-          </a>
-          <a
-            href={cvFile}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="view-all-certs-btn view-cv-btn"
-            aria-label="View CV (PDF)"
-          >
-            View CV
-          </a>
-        </div>
       </div>
+
+      <p className="carousel-current-label" aria-live="polite">{activeBlock.title}</p>
     </section>
   );
 }
