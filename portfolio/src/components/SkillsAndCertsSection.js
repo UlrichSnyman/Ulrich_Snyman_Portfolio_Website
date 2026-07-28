@@ -162,6 +162,7 @@ function SkillsAndCertsSection() {
   const wheelLockRef = useRef(false);
   const carouselRef = useRef(null);
   const cardContentRefs = useRef([]);
+  const carouselCardRefs = useRef([]);
   const goNextRef = useRef(null);
   const goPrevRef = useRef(null);
 
@@ -224,6 +225,76 @@ function SkillsAndCertsSection() {
     el.addEventListener('wheel', wheelHandler, { passive: false });
     return () => el.removeEventListener('wheel', wheelHandler);
   }, []);
+
+  // When the active card's content is taller than the visible area, slowly
+  // auto-scroll it down to reveal the cut-off items, then scroll back up and
+  // repeat, so nothing stays hidden without requiring the user to scroll.
+  useEffect(() => {
+    const activeEl = carouselCardRefs.current[activeIndex];
+    if (!activeEl) return undefined;
+
+    const prefersReducedMotion = window.matchMedia
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return undefined;
+
+    const maxScroll = activeEl.scrollHeight - activeEl.clientHeight;
+    if (maxScroll <= 4) return undefined;
+
+    const SCROLL_SPEED = 40; // pixels per second
+    const PAUSE_MS = 1200;
+    let rafId = null;
+    let timeoutId = null;
+    let cancelled = false;
+
+    const animateTo = (target, onDone) => {
+      const start = activeEl.scrollTop;
+      const distance = target - start;
+      if (Math.abs(distance) < 1) {
+        onDone();
+        return;
+      }
+      const duration = (Math.abs(distance) / SCROLL_SPEED) * 1000;
+      const startTime = performance.now();
+
+      const step = (now) => {
+        if (cancelled) return;
+        const progress = Math.min(1, (now - startTime) / duration);
+        activeEl.scrollTop = start + distance * progress;
+        if (progress < 1) {
+          rafId = requestAnimationFrame(step);
+        } else {
+          onDone();
+        }
+      };
+      rafId = requestAnimationFrame(step);
+    };
+
+    const cycle = () => {
+      if (cancelled) return;
+      timeoutId = setTimeout(() => {
+        if (cancelled) return;
+        animateTo(maxScroll, () => {
+          if (cancelled) return;
+          timeoutId = setTimeout(() => {
+            if (cancelled) return;
+            animateTo(0, () => {
+              if (cancelled) return;
+              cycle();
+            });
+          }, PAUSE_MS);
+        });
+      }, PAUSE_MS);
+    };
+
+    activeEl.scrollTop = 0;
+    cycle();
+
+    return () => {
+      cancelled = true;
+      if (rafId) cancelAnimationFrame(rafId);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [activeIndex, maxCardHeight]);
 
   const handleKeyDown = useCallback((e) => {
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
@@ -290,6 +361,7 @@ function SkillsAndCertsSection() {
             return (
               <div
                 key={block.id}
+                ref={(el) => { carouselCardRefs.current[i] = el; }}
                 className={`carousel-card${isActive ? ' active' : ''}`}
                 style={{ '--offset': offset, '--abs-offset': Math.abs(offset) }}
                 aria-hidden={!isActive}
