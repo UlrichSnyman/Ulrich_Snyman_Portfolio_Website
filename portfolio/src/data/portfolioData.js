@@ -4,11 +4,9 @@
  * HOW TO UPDATE THIS PORTFOLIO
  * ─────────────────────────────
  * • Profile details (name, headline, location, contact): edit `profile` below.
- * • Professional / soft-skill groups: edit `professionalSkills`.
- * • Technology stack (shown in the Technologies banner): edit the
- *   `techCategories` object in TechnologiesBanner.js.
+ * • Professional / soft-skill groups: edit `professionalSkills` below.
+ * • Technology stack and certificates: edit SkillsAndCertsSection.js.
  * • Projects: edit the `projects` array in PortfolioSection.js.
- * • Certificates: edit the `certificates` array in CertificatesSection.js.
  *
  * All data-driven sections re-render automatically when you save the file —
  * no template markup needs to be duplicated or manually kept in sync.

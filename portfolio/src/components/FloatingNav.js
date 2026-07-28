@@ -5,8 +5,7 @@ const FloatingNav = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Get the original nav's position (you might need to adjust this value)
-      const triggerHeight = window.innerHeight * 0.4; 
+      const triggerHeight = window.innerHeight * 0.4;
       const show = window.scrollY > triggerHeight;
       setVisible(show);
     };
@@ -27,9 +26,9 @@ const FloatingNav = () => {
       <div className="nav-content">
         <div className="nav-brand">Ulrich Snyman</div>
         <div className="nav-links">
-          <a href="#about" tabIndex="0" onKeyDown={(e) => handleKeyDown(e, 'about')} aria-label="Navigate to About section">About</a>
+          <a href="#profile" tabIndex="0" onKeyDown={(e) => handleKeyDown(e, 'profile')} aria-label="Navigate to Profile section">Profile</a>
           <a href="#projects" tabIndex="0" onKeyDown={(e) => handleKeyDown(e, 'projects')} aria-label="Navigate to Projects section">Projects</a>
-          <a href="#skills" tabIndex="0" onKeyDown={(e) => handleKeyDown(e, 'skills')} aria-label="Navigate to Technologies section">Technologies</a>
+          <a href="#skills" tabIndex="0" onKeyDown={(e) => handleKeyDown(e, 'skills')} aria-label="Navigate to Skills section">Skills</a>
         </div>
       </div>
     </nav>

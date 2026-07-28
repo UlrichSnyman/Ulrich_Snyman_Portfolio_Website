@@ -3,8 +3,9 @@ import { profile } from '../data/portfolioData';
 
 function ProfileSection() {
   return (
-    <div className="profile-section animate-fade-in">
+    <section id="profile" className="profile-section animate-fade-in">
       <div className="profile-content">
+        {/* Left column: identity + contact */}
         <div className="profile-info">
           <h1>{profile.name}</h1>
           <p className="title">
@@ -24,17 +25,31 @@ function ProfileSection() {
             <a href={`tel:${profile.phone}`} className="contact-badge" aria-label="Call phone number">
               <span>{profile.phone}</span>
             </a>
+            <a href={profile.github} target="_blank" rel="noopener noreferrer" className="contact-badge" aria-label="GitHub profile">
+              <span>GitHub: {profile.githubHandle}</span>
+            </a>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="contact-badge" aria-label="LinkedIn profile">
+              <span>LinkedIn: {profile.linkedinHandle}</span>
+            </a>
           </div>
 
           <div className="work-status">
-            <p>Looking for work: <span className="status-no">Yes</span></p>
+            <p>Open to opportunities: <span className="status-yes">Yes</span></p>
           </div>
         </div>
+
+        {/* Centre column: profile image */}
         <div className="profile-image">
-          <img src={profile.profileImage} alt={`${profile.name} - Full Stack Developer`} />
+          <img src={profile.profileImage} alt={`${profile.name} - Junior IT & Full-Stack Developer`} />
+        </div>
+
+        {/* Right column: professional summary */}
+        <div className="profile-summary">
+          <h2>About Me</h2>
+          <p>{profile.professionalSummary}</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
