@@ -33,7 +33,14 @@ export const profile = {
     'administration, stock control, security oversight, and problem-solving under ' +
     'pressure. Fluent in Afrikaans and English, with a professional, patient, and ' +
     'organised approach to technical support, ticket logging, Microsoft 365 concepts, ' +
-    'remote assistance, and client service.',
+    'remote assistance, and client service.' + '' +
+    'Comfortable working both independently and ' +
+    'as part of a team, with a strong drive to continuously learn new technologies and ' +
+    'best practices. Adept at breaking down complex technical issues into clear, ' +
+    'actionable steps for non-technical users, while maintaining a calm, courteous, and ' +
+    'solutions-focused attitude even in high-pressure environments. Eager to grow within ' +
+    'a supportive IT or development team, contribute to meaningful projects, and build a ' +
+    'long-term career bridging technical support and software development.',
 };
 
 /**
