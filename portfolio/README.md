@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# Ulrich Snyman — Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React portfolio website featuring fluid animations, responsive design, and a data-driven content architecture.
 
-## Available Scripts
+## Live site
 
-In the project directory, you can run:
+<https://ulsnportfolio.netlify.app>
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How to update portfolio content
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+All content lives in **one of two places**. You never need to touch component templates just to add a new entry.
 
-### `npm test`
+### 1. Profile & contact details, professional skills, languages
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Edit **`src/data/portfolioData.js`**:
 
-### `npm run build`
+| What you want to change | Where in the file |
+|---|---|
+| Name, headline, location, email, phone, portfolio URL | `profile` object |
+| Professional summary paragraph | `profile.professionalSummary` |
+| Spoken languages | `profile.languages` array |
+| IT Support / Microsoft / Customer & Admin skill groups | `professionalSkills` array |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To **add a new skill group** (e.g. "Project Management"), append an object to `professionalSkills`:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```js
+{
+  title: 'Project Management',
+  icon: '📋',
+  skills: ['Agile basics', 'Kanban', 'Sprint planning'],
+},
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. Projects
 
-### `npm run eject`
+Edit the `projects` array at the top of **`src/components/PortfolioSection.js`**.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Each entry looks like:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```js
+{
+  title: "My New Project",
+  description: "Short description.",
+  technologies: ["React", "Node.js"],
+  imageUrl: require('../assets/images/my_screenshot.png'),
+  projectUrl: "https://live-url.example.com",
+  githubUrl: "https://github.com/UlrichSnyman/my-repo"
+},
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 3. Certificates
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Edit the `certificates` array at the top of **`src/components/CertificatesSection.js`**.
 
-## Learn More
+Drop the PDF into `src/assets/certs/` and add:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+{
+  title: "New Certificate",
+  file: require('../assets/certs/Ulrich_Snyman_NewCert.pdf'),
+  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/something/something-original.svg"
+},
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Leave `file` out (or set it to `null`) for a "Coming Soon" placeholder.
 
-### Code Splitting
+### 4. Technology stack (banner)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Edit `techCategories` in **`src/components/TechnologiesBanner.js`**.
 
-### Analyzing the Bundle Size
+Add a new icon to an existing category, or add a new `key: [...]` object for a whole new category row.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+cd portfolio
+npm install
+npm start        # dev server at http://localhost:3000
+npm run build    # production build
+npm test         # run tests
+```
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> The app was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> See the CRA docs for advanced configuration, code-splitting, PWA, and deployment details.

@@ -29,7 +29,7 @@ const FloatingNav = () => {
         <div className="nav-links">
           <a href="#about" tabIndex="0" onKeyDown={(e) => handleKeyDown(e, 'about')} aria-label="Navigate to About section">About</a>
           <a href="#projects" tabIndex="0" onKeyDown={(e) => handleKeyDown(e, 'projects')} aria-label="Navigate to Projects section">Projects</a>
-          <a href="#skills" tabIndex="0" onKeyDown={(e) => handleKeyDown(e, 'skills')} aria-label="Navigate to Skills section">Skills</a>
+          <a href="#skills" tabIndex="0" onKeyDown={(e) => handleKeyDown(e, 'skills')} aria-label="Navigate to Technologies section">Technologies</a>
         </div>
       </div>
     </nav>
