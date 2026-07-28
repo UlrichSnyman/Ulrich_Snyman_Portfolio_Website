@@ -1,32 +1,43 @@
 import React from 'react';
+import { profile } from '../data/portfolioData';
 
 function ProfileSection() {
   return (
     <div className="profile-section animate-fade-in">
       <div className="profile-content">
         <div className="profile-info">
-          <h1>Ulrich Snyman</h1>
-          <p className="title"><span className="highlight-text">Junior Full-Stack Web Developer</span></p>
-          <p className="location"><a href="https://www.google.com/maps/place/Pretoria" target="_blank" rel="noopener noreferrer">Pretoria, Gauteng</a> UTC +02:00 </p>
-          <p className="description">Experienced in <span className="highlight-text">Java</span> and <span className="highlight-text">Python</span> development. I also work with other languages and frameworks as seen in the technologies section.</p>
+          <h1>{profile.name}</h1>
+          <p className="title">
+            <span className="highlight-text">{profile.headline}</span>
+          </p>
+          <p className="location">
+            <a href={profile.locationUrl} target="_blank" rel="noopener noreferrer">
+              {profile.location}
+            </a>
+          </p>
+
+          {/* Contact badges */}
+          <div className="profile-contact-badges">
+            <a href={`mailto:${profile.email}`} className="contact-badge" aria-label="Send email">
+              <span className="badge-icon">✉</span>
+              <span>{profile.email}</span>
+            </a>
+            <a href={`tel:${profile.phone}`} className="contact-badge" aria-label="Call phone number">
+              <span className="badge-icon">📞</span>
+              <span>{profile.phone}</span>
+            </a>
+            <a href={profile.portfolio} target="_blank" rel="noopener noreferrer" className="contact-badge" aria-label="View portfolio website">
+              <span className="badge-icon">🌐</span>
+              <span>Portfolio</span>
+            </a>
+          </div>
+
           <div className="work-status">
-            <p>Current Occupation: <span className="highlight-text">Code College, Intern</span></p>
             <p>Looking for work: <span className="status-no">Yes</span></p>
-            <p><span className="contact-label">CV:</span> 
-              <a 
-                href={require('../assets/certs/Ulrich_Snyman_CV_non_ATS.pdf')} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="cv-button"
-                aria-label="Download my CV"
-              >
-                Download CV
-              </a>
-            </p>
           </div>
         </div>
         <div className="profile-image">
-          <img src={require('../assets/images/Pfp.jpg')} alt="Ulrich Snyman - Full Stack Developer" />
+          <img src={profile.profileImage} alt={`${profile.name} - Full Stack Developer`} />
         </div>
       </div>
     </div>

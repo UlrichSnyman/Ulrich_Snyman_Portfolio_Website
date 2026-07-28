@@ -1908,9 +1908,198 @@ button:focus,
   }
 }
 
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   *:focus {
     transition: none;
+  }
+}
+
+/* ============================================
+   PROFILE CONTACT BADGES
+   ============================================ */
+.profile-contact-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 1rem 0;
+}
+
+.contact-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  background: rgba(15, 52, 96, 0.35);
+  border: 1px solid rgba(74, 144, 226, 0.3);
+  border-radius: 20px;
+  color: #7bb3f0;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  word-break: break-all;
+}
+
+.contact-badge:hover {
+  background: rgba(74, 144, 226, 0.25);
+  border-color: rgba(74, 144, 226, 0.6);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.badge-icon {
+  font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   PROFESSIONAL SKILLS SECTION
+   ============================================ */
+.professional-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 1.5rem;
+}
+
+.professional-skill-card {
+  background: rgba(15, 52, 96, 0.2);
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  border-radius: 14px;
+  padding: 1.5rem;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.professional-skill-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(74, 144, 226, 0.45);
+  box-shadow: 0 10px 30px rgba(74, 144, 226, 0.12);
+  background: rgba(15, 52, 96, 0.3);
+}
+
+.skill-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.skill-card-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.skill-card-title {
+  color: #7bb3f0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(123, 179, 240, 0.2);
+}
+
+.skill-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skill-card-list li {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  line-height: 1.4;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.skill-card-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #4a90e2;
+}
+
+/* ============================================
+   LANGUAGES LIST (in About section)
+   ============================================ */
+.languages-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.language-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.language-name {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  min-width: 100px;
+}
+
+.language-level {
+  color: #4a90e2;
+  font-size: 1.1rem;
+  background: rgba(74, 144, 226, 0.15);
+  border: 1px solid rgba(74, 144, 226, 0.3);
+  border-radius: 12px;
+  padding: 0.2rem 0.8rem;
+}
+
+/* ============================================
+   SECTION SUBTITLE
+   ============================================ */
+.section-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.3rem;
+  margin: -0.5rem 0 0.5rem 0;
+  font-style: italic;
+}
+
+/* Responsive adjustments for new components */
+@media (max-width: 768px) {
+  .profile-contact-badges {
+    gap: 0.5rem;
+  }
+
+  .contact-badge {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.7rem;
+    word-break: break-all;
+  }
+
+  .professional-skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skill-card-title {
+    font-size: 1.1rem;
+  }
+
+  .skill-card-list li {
+    font-size: 1rem;
+  }
+
+  .language-name {
+    font-size: 1.1rem;
   }
 }

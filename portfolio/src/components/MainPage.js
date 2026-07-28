@@ -6,6 +6,7 @@ import TechnologiesBanner from './TechnologiesBanner';
 import CertificatesSection from './CertificatesSection';
 import FloatingNav from './FloatingNav';
 import AboutSection from './AboutSection';
+import ProfessionalSkillsSection from './ProfessionalSkillsSection';
 
 function MainPage() {
   return (
@@ -17,6 +18,7 @@ function MainPage() {
         <PortfolioNav />
         <AboutSection />
         <PortfolioSection />
+        <ProfessionalSkillsSection />
         <TechnologiesBanner />
         <CertificatesSection />
       </main>
