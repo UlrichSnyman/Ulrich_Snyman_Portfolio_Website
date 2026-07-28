@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { professionalSkills } from '../data/portfolioData';
 
 const allCertificatesFile = require('../assets/certs/Ulrich_Snyman_All_Certificates.pdf');
@@ -39,17 +39,17 @@ const techCategories = {
   ],
 };
 
-/** Certificate qualifications list */
+/** Certificate qualifications list, each paired with a representative logo */
 const qualifications = [
-  'Introduction to Programming',
-  'Node.js',
-  'Python',
-  'HTMX',
-  'MERN Stack',
-  'React',
-  'SQL',
-  'Java (Beginner)',
-  'Java (Advanced)',
+  { name: 'Introduction to Programming', img: require('../assets/icons/programming.svg').default },
+  { name: 'Node.js', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+  { name: 'Python', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+  { name: 'HTMX', img: require('../assets/icons/htmx.png') },
+  { name: 'MERN Stack', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
+  { name: 'React', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+  { name: 'SQL', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+  { name: 'Java (Beginner)', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
+  { name: 'Java (Advanced)', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
 ];
 
 /**
@@ -75,6 +75,7 @@ function buildSkillBlocks() {
       id: group.title,
       title: group.title,
       type: 'skills',
+      icon: group.icon,
       items: group.skills,
     });
   });
@@ -93,10 +94,10 @@ function buildSkillBlocks() {
 const skillBlocks = buildSkillBlocks();
 const BLOCK_COUNT = skillBlocks.length;
 
-function TechBlock({ block }) {
+function TechBlock({ block, style }, ref) {
   if (block.type === 'tech') {
     return (
-      <div className="carousel-card-content tech-category">
+      <div ref={ref} className="carousel-card-content tech-category" style={style}>
         <h3 className="category-title">{block.title}</h3>
         <div className="technologies-grid">
           {block.items.map(tech => (
@@ -112,8 +113,11 @@ function TechBlock({ block }) {
 
   if (block.type === 'skills') {
     return (
-      <div className="carousel-card-content tech-category">
-        <h3 className="category-title">{block.title}</h3>
+      <div ref={ref} className="carousel-card-content tech-category" style={style}>
+        <h3 className="category-title">
+          {block.icon && <img src={block.icon} alt="" className="category-title-icon" />}
+          <span>{block.title}</span>
+        </h3>
         <ul className="skill-card-list">
           {block.items.map(skill => (
             <li key={skill}>{skill}</li>
@@ -125,16 +129,21 @@ function TechBlock({ block }) {
 
   // certs
   return (
-    <div className="carousel-card-content tech-category">
+    <div ref={ref} className="carousel-card-content tech-category" style={style}>
       <h3 className="category-title">{block.title}</h3>
-      <ul className="skill-card-list">
-        {block.items.map(q => (
-          <li key={q}>{q}</li>
+      <div className="technologies-grid">
+        {block.items.map(cert => (
+          <div key={cert.name} className="technology-card" title={cert.name}>
+            <img src={cert.img} alt={`${cert.name} certificate logo`} className="technology-icon" />
+            <span className="tech-name">{cert.name}</span>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
+
+const ForwardedTechBlock = React.forwardRef(TechBlock);
 
 /**
  * Returns the relative offset (-N..N) of a block's index from the active
@@ -149,7 +158,12 @@ function relativeOffset(index, activeIndex, count) {
 
 function SkillsAndCertsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [maxCardHeight, setMaxCardHeight] = useState(null);
   const wheelLockRef = useRef(false);
+  const carouselRef = useRef(null);
+  const cardContentRefs = useRef([]);
+  const goNextRef = useRef(null);
+  const goPrevRef = useRef(null);
 
   const goTo = useCallback((index) => {
     setActiveIndex(((index % BLOCK_COUNT) + BLOCK_COUNT) % BLOCK_COUNT);
@@ -158,20 +172,58 @@ function SkillsAndCertsSection() {
   const goNext = useCallback(() => goTo(activeIndex + 1), [activeIndex, goTo]);
   const goPrev = useCallback(() => goTo(activeIndex - 1), [activeIndex, goTo]);
 
-  // Allow circulating through the collage by scrolling while the mouse is over it.
-  const handleWheel = useCallback((e) => {
-    e.preventDefault();
-    if (wheelLockRef.current) return;
-    wheelLockRef.current = true;
-    if (e.deltaY > 0 || e.deltaX > 0) {
-      goNext();
-    } else if (e.deltaY < 0 || e.deltaX < 0) {
-      goPrev();
-    }
-    setTimeout(() => {
-      wheelLockRef.current = false;
-    }, 350);
-  }, [goNext, goPrev]);
+  goNextRef.current = goNext;
+  goPrevRef.current = goPrev;
+
+  // Measure every card's natural content height so every card in the
+  // carousel can be resized to match the tallest one, regardless of which
+  // block is currently active. Height is cleared (and remeasured) on resize
+  // so it stays accurate across breakpoints.
+  useLayoutEffect(() => {
+    if (maxCardHeight !== null) return;
+    const heights = cardContentRefs.current.map(el => (el ? el.scrollHeight : 0));
+    const max = Math.max(0, ...heights);
+    if (max > 0) setMaxCardHeight(max);
+  }, [maxCardHeight]);
+
+  useEffect(() => {
+    let resizeTimeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => setMaxCardHeight(null), 150);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      clearTimeout(resizeTimeout);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  // Allow circulating through the collage by scrolling while the mouse is over
+  // it. A native (non-passive) listener is required because React attaches
+  // onWheel as a passive listener by default, which silently ignores
+  // preventDefault() and lets the page scroll underneath the carousel.
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return undefined;
+
+    const wheelHandler = (e) => {
+      e.preventDefault();
+      if (wheelLockRef.current) return;
+      wheelLockRef.current = true;
+      if (e.deltaY > 0 || e.deltaX > 0) {
+        goNextRef.current();
+      } else if (e.deltaY < 0 || e.deltaX < 0) {
+        goPrevRef.current();
+      }
+      setTimeout(() => {
+        wheelLockRef.current = false;
+      }, 350);
+    };
+
+    el.addEventListener('wheel', wheelHandler, { passive: false });
+    return () => el.removeEventListener('wheel', wheelHandler);
+  }, []);
 
   const handleKeyDown = useCallback((e) => {
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
@@ -219,7 +271,7 @@ function SkillsAndCertsSection() {
         aria-roledescription="carousel"
         aria-label="Skills, technologies and certificates"
         tabIndex="0"
-        onWheel={handleWheel}
+        ref={carouselRef}
         onKeyDown={handleKeyDown}
       >
         <button
@@ -235,7 +287,6 @@ function SkillsAndCertsSection() {
           {skillBlocks.map((block, i) => {
             const offset = relativeOffset(i, activeIndex, BLOCK_COUNT);
             const isActive = offset === 0;
-            const isVisible = Math.abs(offset) <= 2;
             return (
               <div
                 key={block.id}
@@ -244,7 +295,11 @@ function SkillsAndCertsSection() {
                 aria-hidden={!isActive}
                 inert={!isActive}
               >
-                {isVisible && <TechBlock block={block} />}
+                <ForwardedTechBlock
+                  block={block}
+                  ref={(el) => { cardContentRefs.current[i] = el; }}
+                  style={maxCardHeight ? { minHeight: `${maxCardHeight}px` } : undefined}
+                />
               </div>
             );
           })}

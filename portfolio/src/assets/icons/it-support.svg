@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="IT support icon">
+  <rect x="4" y="4" width="120" height="120" rx="18" fill="#1e1e2e"/>
+  <path d="M64 24a24 24 0 0 0-24 24v6a10 10 0 0 0-6 9v10a10 10 0 0 0 10 10h4V54a16 16 0 0 1 32 0v29h4a10 10 0 0 0 10-10V63a10 10 0 0 0-6-9v-6a24 24 0 0 0-24-24z" fill="#4a90e2"/>
+  <path d="M40 83v6a20 20 0 0 0 20 20h6a6 6 0 0 0 0-12h-6a8 8 0 0 1-8-8v-6z" fill="#4a90e2"/>
+  <circle cx="46" cy="60" r="4" fill="#1e1e2e"/>
+  <circle cx="82" cy="60" r="4" fill="#1e1e2e"/>
+</svg>
