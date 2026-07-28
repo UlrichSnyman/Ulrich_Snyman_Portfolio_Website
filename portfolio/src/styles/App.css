@@ -951,6 +951,21 @@ section[id] {
   box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
 }
 
+.certs-buttons-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .certs-buttons-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
 /* Technologies section styles */
 .technologies-banner {
   width: 100%;
