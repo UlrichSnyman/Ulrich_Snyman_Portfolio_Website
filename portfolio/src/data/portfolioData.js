@@ -33,7 +33,7 @@ export const profile = {
     'administration, stock control, security oversight, and problem-solving under ' +
     'pressure. Fluent in Afrikaans and English, with a professional, patient, and ' +
     'organised approach to technical support, ticket logging, Microsoft 365 concepts, ' +
-    'remote assistance, and client service.' + '' +
+    'remote assistance, and client service. ' +
     'Comfortable working both independently and ' +
     'as part of a team, with a strong drive to continuously learn new technologies and ' +
     'best practices. Adept at breaking down complex technical issues into clear, ' +
@@ -52,6 +52,7 @@ export const profile = {
 export const professionalSkills = [
   {
     title: 'IT Support',
+    icon: require('../assets/icons/it-support.svg').default,
     skills: [
       'Basic troubleshooting & issue diagnosis',
       'Remote-assistance mindset',
@@ -61,6 +62,7 @@ export const professionalSkills = [
   },
   {
     title: 'Microsoft & Office Tools',
+    icon: require('../assets/icons/MicrosoftAccess.png'),
     skills: [
       'Microsoft Office suite',
       'Microsoft 365 familiarity',
@@ -71,6 +73,7 @@ export const professionalSkills = [
   },
   {
     title: 'Customer & Admin Support',
+    icon: require('../assets/icons/customer-support.svg').default,
     skills: [
       'Ticket / query logging',
       'Follow-ups & accurate records',

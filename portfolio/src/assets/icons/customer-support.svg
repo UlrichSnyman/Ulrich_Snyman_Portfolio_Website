@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Customer support icon">
+  <rect x="4" y="4" width="120" height="120" rx="18" fill="#1e1e2e"/>
+  <path d="M28 58a8 8 0 0 1 8-8h56a8 8 0 0 1 8 8v20a8 8 0 0 1-8 8H62l-14 12v-12h-12a8 8 0 0 1-8-8z" fill="#4a90e2"/>
+  <circle cx="48" cy="68" r="4" fill="#1e1e2e"/>
+  <circle cx="64" cy="68" r="4" fill="#1e1e2e"/>
+  <circle cx="80" cy="68" r="4" fill="#1e1e2e"/>
+</svg>
