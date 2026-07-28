@@ -36,22 +36,17 @@ export const profile = {
     'pressure. Fluent in Afrikaans and English, with a professional, patient, and ' +
     'organised approach to technical support, ticket logging, Microsoft 365 concepts, ' +
     'remote assistance, and client service.',
-
-  languages: [
-    { name: 'Afrikaans', level: 'Native' },
-    { name: 'English', level: 'Fluent' },
-  ],
 };
 
 /**
- * Professional / soft-skill groups displayed in the Professional Skills section.
+ * Professional / soft-skill groups displayed alongside the technology stack
+ * in the Technologies & Skills section.
  * Each group has a title and a list of skill strings.
  * Add a new object to this array to create an additional skill group card.
  */
 export const professionalSkills = [
   {
     title: 'IT Support',
-    icon: '🖥️',
     skills: [
       'Basic troubleshooting & issue diagnosis',
       'Remote-assistance mindset',
@@ -61,7 +56,6 @@ export const professionalSkills = [
   },
   {
     title: 'Microsoft & Office Tools',
-    icon: '📊',
     skills: [
       'Microsoft Office suite',
       'Microsoft 365 familiarity',
@@ -72,7 +66,6 @@ export const professionalSkills = [
   },
   {
     title: 'Customer & Admin Support',
-    icon: '🤝',
     skills: [
       'Ticket / query logging',
       'Follow-ups & accurate records',

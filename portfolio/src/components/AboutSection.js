@@ -20,7 +20,6 @@ class AboutSection extends Component {
     this.state = {
       showSummary: false,
       showContact: false,
-      showLanguages: false,
     };
   }
 
@@ -36,7 +35,7 @@ class AboutSection extends Component {
   }
 
   render() {
-    const { showSummary, showContact, showLanguages } = this.state;
+    const { showSummary, showContact } = this.state;
 
     return (
       <section id="about" className="portfolio-section styled-section animate-fade-in">
@@ -58,32 +57,6 @@ class AboutSection extends Component {
             {showSummary && (
               <div className="collapsible-content">
                 <p>{profile.professionalSummary}</p>
-              </div>
-            )}
-          </div>
-
-          {/* Languages */}
-          <div className="collapsible-section">
-            <button
-              className="collapsible-header"
-              onClick={() => this.toggle('showLanguages')}
-              onKeyDown={(e) => this.handleKeyDown(e, 'showLanguages')}
-              aria-expanded={showLanguages}
-              aria-label="Toggle language information"
-            >
-              <span>Languages</span>
-              <ChevronIcon expanded={showLanguages} />
-            </button>
-            {showLanguages && (
-              <div className="collapsible-content">
-                <ul className="languages-list">
-                  {profile.languages.map(lang => (
-                    <li key={lang.name} className="language-item">
-                      <span className="language-name">{lang.name}</span>
-                      <span className="language-level">{lang.level}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             )}
           </div>

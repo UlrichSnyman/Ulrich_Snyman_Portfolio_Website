@@ -19,16 +19,10 @@ function ProfileSection() {
           {/* Contact badges */}
           <div className="profile-contact-badges">
             <a href={`mailto:${profile.email}`} className="contact-badge" aria-label="Send email">
-              <span className="badge-icon">✉</span>
               <span>{profile.email}</span>
             </a>
             <a href={`tel:${profile.phone}`} className="contact-badge" aria-label="Call phone number">
-              <span className="badge-icon">📞</span>
               <span>{profile.phone}</span>
-            </a>
-            <a href={profile.portfolio} target="_blank" rel="noopener noreferrer" className="contact-badge" aria-label="View portfolio website">
-              <span className="badge-icon">🌐</span>
-              <span>Portfolio</span>
             </a>
           </div>
 
