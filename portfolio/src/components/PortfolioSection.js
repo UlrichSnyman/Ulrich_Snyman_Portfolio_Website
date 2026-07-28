@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import ProjectCard from './ProjectCard';
 
-const projects = [
+export const projects = [
   {
     title: "Portfolio Website",
     description: "A modern portfolio website built with React featuring fluid animations and responsive design.",
@@ -36,7 +36,7 @@ const projects = [
   },
   {
     title: "Movie Review App",
-    description: " A movie review application built with Django and React, allowing users to browse, review, and rate movies.",
+    description: "A movie review application built with Django and React, allowing users to browse, review, and rate movies.",
     technologies: ["React", "JavaScript", "CSS", "HTML", "MongoDB", "Mongoose", "Express", "Axios"],
     imageUrl: require('../assets/images/Movie_Review.png'),
     projectUrl: "https://mern-movie-frontend-uhxq.onrender.com",
@@ -65,7 +65,6 @@ function PortfolioSection() {
   const [selectedTechnology, setSelectedTechnology] = useState('');
   const [filtersExpanded, setFiltersExpanded] = useState(false);
 
-  // Get all unique technologies from projects
   const allTechnologies = useMemo(() => {
     const techSet = new Set();
     projects.forEach(project => {
@@ -74,20 +73,17 @@ function PortfolioSection() {
     return Array.from(techSet).sort();
   }, []);
 
-  // Filter projects based on search term and selected technology
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
       const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            project.description.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesTechnology = selectedTechnology === '' || 
+      const matchesTechnology = selectedTechnology === '' ||
                                project.technologies.includes(selectedTechnology);
       return matchesSearch && matchesTechnology;
     });
   }, [searchTerm, selectedTechnology]);
 
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
+  const handleSearchChange = (e) => setSearchTerm(e.target.value);
 
   const handleTechnologyFilter = (technology) => {
     setSelectedTechnology(selectedTechnology === technology ? '' : technology);
@@ -98,16 +94,14 @@ function PortfolioSection() {
     setSelectedTechnology('');
     setFiltersExpanded(false);
   };
-  
-  const toggleFilters = () => {
-    setFiltersExpanded(!filtersExpanded);
-  };
+
+  const toggleFilters = () => setFiltersExpanded(!filtersExpanded);
 
   return (
     <section id="projects" className="portfolio-section styled-section animate-fade-in">
       <div className="content-wrapper">
         <h2>Projects</h2>
-        
+
         {/* Search and Filter Controls */}
         <div className="project-controls-compact">
           <div className="search-bar-container">
@@ -118,31 +112,26 @@ function PortfolioSection() {
               onChange={handleSearchChange}
               className="search-input-compact"
             />
-            <button 
-              onClick={toggleFilters} 
+            <button
+              onClick={toggleFilters}
               className={`filter-toggle-btn ${filtersExpanded ? 'active' : ''}`}
+              aria-expanded={filtersExpanded}
               aria-label="Toggle technology filters"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="4" y1="21" x2="4" y2="14"></line>
-                <line x1="4" y1="10" x2="4" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12" y2="3"></line>
-                <line x1="20" y1="21" x2="20" y2="16"></line>
-                <line x1="20" y1="12" x2="20" y2="3"></line>
-                <line x1="1" y1="14" x2="7" y2="14"></line>
-                <line x1="9" y1="8" x2="15" y2="8"></line>
-                <line x1="17" y1="16" x2="23" y2="16"></line>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/>
+                <line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/>
+                <line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/>
+                <line x1="17" y1="16" x2="23" y2="16"/>
               </svg>
               Filters
             </button>
             {(searchTerm || selectedTechnology) && (
-              <button onClick={clearFilters} className="clear-btn-compact">
-                ✕
-              </button>
+              <button onClick={clearFilters} className="clear-btn-compact" aria-label="Clear all filters">✕</button>
             )}
           </div>
-          
+
           {filtersExpanded && (
             <div className="technology-filters-expanded">
               {allTechnologies.map(tech => (
@@ -150,13 +139,14 @@ function PortfolioSection() {
                   key={tech}
                   onClick={() => handleTechnologyFilter(tech)}
                   className={`filter-chip ${selectedTechnology === tech ? 'active' : ''}`}
+                  aria-pressed={selectedTechnology === tech}
                 >
                   {tech}
                 </button>
               ))}
             </div>
           )}
-          
+
           {selectedTechnology && (
             <div className="active-filter-tag">
               Filtered: <strong>{selectedTechnology}</strong>
@@ -164,26 +154,23 @@ function PortfolioSection() {
           )}
         </div>
 
-        {/* Results count */}
-        <div className="results-info">
+        <div className="results-info" aria-live="polite">
           Showing {filteredProjects.length} of {projects.length} projects
         </div>
-        
-        <div className="projects-scroll-container">
-          <div className="projects-grid">
-            {filteredProjects.length > 0 ? (
-              filteredProjects.map((project, index) => (
-                <ProjectCard key={index} {...project} />
-              ))
-            ) : (
-              <div className="no-results">
-                <p>No projects found matching your criteria.</p>
-                <button onClick={clearFilters} className="clear-filters-btn">
-                  Show All Projects
-                </button>
-              </div>
-            )}
-          </div>
+
+        <div className="projects-grid">
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((project, index) => (
+              <ProjectCard key={index} {...project} />
+            ))
+          ) : (
+            <div className="no-results">
+              <p>No projects found matching your criteria.</p>
+              <button onClick={clearFilters} className="clear-filters-btn">
+                Show All Projects
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>

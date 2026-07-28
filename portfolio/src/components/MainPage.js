@@ -2,10 +2,8 @@ import React from 'react';
 import ProfileSection from './ProfileSection';
 import PortfolioNav from './PortfolioNav';
 import PortfolioSection from './PortfolioSection';
-import TechnologiesBanner from './TechnologiesBanner';
-import CertificatesSection from './CertificatesSection';
+import SkillsAndCertsSection from './SkillsAndCertsSection';
 import FloatingNav from './FloatingNav';
-import AboutSection from './AboutSection';
 
 function MainPage() {
   return (
@@ -15,10 +13,8 @@ function MainPage() {
                                    Used for screen readers and seo*/}
         <ProfileSection />
         <PortfolioNav />
-        <AboutSection />
         <PortfolioSection />
-        <TechnologiesBanner />
-        <CertificatesSection />
+        <SkillsAndCertsSection />
       </main>
     </>
   );

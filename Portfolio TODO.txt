@@ -1,37 +1,99 @@
-[ ] Improve landing experience (more info at start, better design)
-[x] Add fallback or minimal content for users without JavaScript
-[ ] Optimize performance / loading (code splitting, reduce bundle size, may want to switch hosting)
-[ ] Run Lighthouse / Web Vitals audit and fix major issues
-[x] Optionally: Use semantic HTML & proper ARIA / accessibility attributes 
-[x] Add alt text for all images
-[x] Add CSS for users who prefer high contrast
-[x] Ensure keyboard navigation works everywhere
-[x] Check and fix contrast ratios for readability (mobile)
-[x] Showcase multiple projects (frontend, backend, full-stack)
-[ ] For each project, include:
-    [ ] Problem / goal
-    [x] Technologies used
-    [ ] Approach / design decisions
-    [ ] Challenges & solutions
-    [ ] Live demo link + source code link
-[x] Add “About Me” section with personal story / motivations
-[x] Include contact info (email, LinkedIn, GitHub)
-[x] Add a contact form or call-to-action to reach you
-[ ] Define & apply a consistent color palette & typography
-[ ] Add icons, visual hierarchy, subtle animations / hover effects
-[ ] Create a simple logo or name mark (if possible)
-[ ] Make the design responsive (mobile, tablet, desktop)
-[x] Test across browsers & device sizes
-[ ] Add meta tags, page titles, descriptions, Open Graph tags, seo
-[ ] Use SSR / SSG if possible to improve SEO / indexing
-[x] Add a “Tech Stack / Architecture” section or notes
-[ ] Optionally: a blog or write-ups of what you’ve learned
-[x] Link to GitHub, keep repos clean & documented
-[x] Remove the scroll bar of the main page
-[x] Update the about section to include newer technologies and goals
-[x] Issue on mobile where the email text goes off screen
-[x] Mobile navbar goes off screen, on mobile just remove my name
-[ ] Create a demo for one of the projects (Canvas)
-[ ] On Projects, make it so that the tags and description are expandable 
-[ ] Projects, make it so that they are not restricted to a container, so if you zoom out you can see all
-[ ]
+ULRICH SNYMAN PORTFOLIO — CHANGE LOG & STATUS
+==============================================
+Last updated: July 2026
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CURRENT SITE CAPABILITIES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• React SPA hosted on Netlify (https://ulsnportfolio.netlify.app)
+• Interactive WebGL fluid simulation background
+• Responsive across mobile, tablet, and desktop
+• Accessible: skip-link, ARIA labels, keyboard navigation, high-contrast support
+• No JavaScript fallback (noscript) with full static content
+• Floating navigation bar (appears on scroll)
+• Profile + About combined section (side-by-side desktop, stacked mobile)
+• Compact project grid (auto-fill columns, description expand/collapse)
+• Combined Skills & Certificates section with radial orbit layout on desktop
+  – Slow rotation with prefers-reduced-motion fallback to flat grid
+  – View Certificates (PDF) and View CV (PDF) buttons centred in orbit
+• Centralised data in portfolioData.js (profile, skills, summary)
+• Smooth scroll, subtle section animations, hover effects
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMPLETED IMPROVEMENTS (in order)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Initial React portfolio built with WebGL fluid background
+2. Added responsive mobile layout; fixed navbar overflow on small screens
+3. Fixed email text overflow on mobile
+4. Added noscript fallback with all key content
+5. Implemented skip-link, ARIA attributes, and keyboard navigation
+6. Added alt text for all images; ensured contrast ratios pass WCAG AA
+7. Added high-contrast CSS media query support
+8. Implemented floating navigation (shows after scrolling 40% of viewport)
+9. Showcased 7 projects (Portfolio, Fluid Sim, Cohort Randomizer, Firetrack,
+   Movie Review, GraphQL App, MERN Collaborative Canvas)
+10. Added search + technology filter controls for projects
+11. Restructured technologies into icon grid + professional skill groups
+12. Added Certificates section with qualifications list and PDF download
+13. Updated professional profile: IT Support Technician + Full-Stack Developer
+    – Added correct contact details, professional summary, new skills
+    – Centralised profile data in portfolioData.js
+    – Added professionalSkills groups (IT Support, Microsoft/Office, Customer/Admin)
+14. Merged Profile and About sections: 3-column desktop layout
+    – Removed standalone About section and cleaned up its component/styles
+15. Redesigned Projects to compact responsive CSS grid
+    – Description and tech-tag expand/collapse for reduced card height
+16. Combined Skills/Technologies and Certificates into one section
+    – Radial orbit layout on desktop (8 blocks, 60s rotation)
+    – prefers-reduced-motion → flat responsive grid
+    – CV and Certificates action buttons centred
+17. Updated navigation: removed "About" link, updated anchor to #profile
+18. Rebuilt Portfolio TODO.txt as concise changelog (this file)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CURRENT CONTENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Projects (7):  Portfolio Website · Fluid Sim · Cohort Randomizer · Firetrack
+               Movie Review App · GraphQL React App · MERN Collaborative Canvas
+
+Technologies:  Languages: JS · Python · Java · HTML5 · CSS3 · Sass · Delphi
+               Frameworks: React · Django · Spring · Node.js · Express · HTMX
+               Databases: MongoDB · PostgreSQL · Firebase · Mongoose · MS Access
+               Tools: Git · Docker · WebGL · GraphQL · WebSockets
+
+Skills:        IT Support · Microsoft & Office Tools · Customer & Admin Support
+
+Certificates:  Intro to Programming · Node.js · Python · HTMX · MERN Stack
+               React · SQL · Java (Beginner) · Java (Advanced)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ARCHITECTURE & CONTENT MAINTENANCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• To update profile/contact/summary → edit src/data/portfolioData.js (profile object)
+• To add/edit professional skill groups → edit professionalSkills in portfolioData.js
+• To add a project → append to the projects array in PortfolioSection.js
+• To add a technology → add to techCategories in SkillsAndCertsSection.js
+• To add a certificate → add to qualifications in SkillsAndCertsSection.js
+• To update CV or Certificates PDF → replace files in src/assets/certs/
+• Build: cd portfolio && npm run build
+• Test:  cd portfolio && CI=true npm test
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ACCESSIBILITY / RESPONSIVE / PERFORMANCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• prefers-reduced-motion: orbit animation disabled; flat grid shown instead
+• prefers-contrast: high: white outlines on focused elements
+• Orbit blocks are aria-hidden; full content always available in fallback grid
+• Touch targets ≥ 44px on mobile
+• Images have descriptive alt text
+• Skip link visible on focus for keyboard users
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FUTURE ENHANCEMENTS (prioritised)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Add live project demo for MERN Canvas
+2. Run Lighthouse / Web Vitals audit and address findings
+3. Add SEO improvements (structured data already done; consider SSG)
+4. Implement dark/light theme toggle
+5. Add blog or write-up section for project retrospectives
+6. Code splitting / lazy-loading for images and heavy components

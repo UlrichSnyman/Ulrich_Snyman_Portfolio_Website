@@ -7,8 +7,8 @@ test('renders portfolio main heading', () => {
   expect(titleElement).toBeInTheDocument();
 });
 
-test('renders technologies section', () => {
+test('renders skills and certificates section', () => {
   render(<App />);
-  const technologiesElement = screen.getByText(/Technologies & Skills/i);
-  expect(technologiesElement).toBeInTheDocument();
+  const skillsElement = screen.getByText(/Skills, Technologies & Certificates/i);
+  expect(skillsElement).toBeInTheDocument();
 });
