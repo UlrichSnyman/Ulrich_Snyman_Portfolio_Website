@@ -1,3 +1,48 @@
-# https://www.robotstxt.org/robotstxt.html
+# Search engines are welcome to index the portfolio.
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: DuckDuckBot
+User-agent: Slurp
+User-agent: Applebot
+User-agent: LinkedInBot
+Allow: /
+
+# AI crawlers, SEO scrapers and data harvesters are not allowed.
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: anthropic-ai
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: PerplexityBot
+User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: meta-externalagent
+User-agent: FacebookBot
+User-agent: Diffbot
+User-agent: cohere-ai
+User-agent: ImagesiftBot
+User-agent: Omgilibot
+User-agent: Omgili
+User-agent: YouBot
+User-agent: Timpibot
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: BLEXBot
+User-agent: PetalBot
+User-agent: DataForSeoBot
+User-agent: serpstatbot
+User-agent: Scrapy
+User-agent: MegaIndex
+Disallow: /
+
+# Everyone else
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://ulsnportfolio.netlify.app/sitemap.xml
